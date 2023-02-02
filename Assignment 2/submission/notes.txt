@@ -1,0 +1,39 @@
+1. Navigating through Emacs source code
+(* (expt 2 (- 607 1)) (- (expt 2 607) 1))
+
+(+ 1 (logb (* (expt 2 (- 607 1)) (- (expt 2 607) 1))))
+
+C-h k is the keystroke for the describe-key command. Running C-h k will prompt the user to enter a keystroke to describe,
+and inputting C-h k again will describe the describe-key command itself. This is equivalent to reading the description for C-h k
+produced by C-h b.
+
+M-SPC is the keystroke for just-one-space, which deletes the spaces and tabs around the point and leaves just one space.
+
+M-SPC is implemented using the cycle-spacing function, which cycles through 3 actions:
+1. Deletes all spaces and tabs around point and leaves one space (this is what just-one-space uses)
+2. Deletes all spaces
+3. Restores original spaces
+
+3. Homework: Python Scripting
+randline throws an error when run on /dev/null/, because the input is empty and it tries to access data when there is none, thus creating an out of range error.
+
+randline does not run on python3 because there is invalid syntax for python3.
+
+When I run my shuf.py script using python2, I get a syntax error because I use f strings in my implementation, which are not supported in python2.
+
+Time Benchmarks:
+shuf (Coreutils)
+user median: 0.06s
+sys median: 0.009s
+
+shuf.py (Python 3.6)
+user median: 0.966s
+sys median: 0.034s
+
+shuf.py (Python 3.11)
+user median: 0.685s
+sys median: 0.036s
+
+CPU and OS information:
+CPU: Intel Xeon Silver 4116 CPU @ 2.10 GHz, 4 CPUs, 4 cores per socket
+Operating system: Red Hat Enterprise Linux version 8.5

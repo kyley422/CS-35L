@@ -1,0 +1,1733 @@
+1. Using the which command, we can find the locations of sh sleep and type commands respectively:
+/usr/bin/sh
+/usr/bin/sleep
+/usr/bin/type
+
+2. We can use regex to match the name in /usr/bin: find /usr/bin -regex "/usr/bin/se."
+There are two commands that match this; running the man command on these describes what each command does:
+seq: prints a sequence of numbers
+sed: a text editor that operates on input streams of text
+
+3. Navigating to /usr/local/cs/bin/ and examining the directory with ls -l, we see that emacs is a symbolic link: 
+emacs -> ../emacs-28.2/bin/emacs-28.2
+So the actual file executed when we call /usr/local/cs/bin/emacs is actually
+emacs-28.2/bin/emacs-28.2
+
+4. Using /usr/bin/gcc --version and gcc --version, we get
+/usr/bin/gcc --version as 8.5.0 and
+gcc --version as 12.2.0.
+
+Running which gcc results in /usr/local/cs/bin/gcc, which is a different path from
+/usr/bin/gcc, resulting in the different versions. So the plain gcc is a different program
+than /usr/bin/gcc.
+
+5. For u+sx:
+u refers to the user's permissions, + refers to adding a permission, and sx are the permission arguments.
+s refers to special permission, and x refers to execute permission
+so u+sx will change the permissions so that the user will be able to execute this file with special (root) permissions.
+
+For o-w,
+o refers to other users that aren't the user or the group, - refers to removing a permission, and w is the permission argument.
+So o-w will remove other users' write permission for the file.
+
+Combined, u+sx and o-w will change their respective permissions when combined with a comma.
+
+6. Using find /usr/local/cs -type d -newermt "2023-01-10", these directories were modified:
+
+/usr/local/cs
+/usr/local/cs/wget2-2.0.1
+/usr/local/cs/wget2-2.0.1/include
+/usr/local/cs/wget2-2.0.1/lib
+/usr/local/cs/wget2-2.0.1/lib/pkgconfig
+/usr/local/cs/wget2-2.0.1/bin
+/usr/local/cs/wget2-2.0.1/share
+/usr/local/cs/wget2-2.0.1/share/locale
+/usr/local/cs/wget2-2.0.1/share/locale/ca
+/usr/local/cs/wget2-2.0.1/share/locale/ca/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/cs
+/usr/local/cs/wget2-2.0.1/share/locale/cs/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/de
+/usr/local/cs/wget2-2.0.1/share/locale/de/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/eo
+/usr/local/cs/wget2-2.0.1/share/locale/eo/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/es
+/usr/local/cs/wget2-2.0.1/share/locale/es/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/et
+/usr/local/cs/wget2-2.0.1/share/locale/et/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/fi
+/usr/local/cs/wget2-2.0.1/share/locale/fi/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/fr
+/usr/local/cs/wget2-2.0.1/share/locale/fr/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/ga
+/usr/local/cs/wget2-2.0.1/share/locale/ga/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/hr
+/usr/local/cs/wget2-2.0.1/share/locale/hr/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/hu
+/usr/local/cs/wget2-2.0.1/share/locale/hu/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/id
+/usr/local/cs/wget2-2.0.1/share/locale/id/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/it
+/usr/local/cs/wget2-2.0.1/share/locale/it/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/ja
+/usr/local/cs/wget2-2.0.1/share/locale/ja/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/nb
+/usr/local/cs/wget2-2.0.1/share/locale/nb/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/nl
+/usr/local/cs/wget2-2.0.1/share/locale/nl/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/pl
+/usr/local/cs/wget2-2.0.1/share/locale/pl/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/pt_BR
+/usr/local/cs/wget2-2.0.1/share/locale/pt_BR/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/ro
+/usr/local/cs/wget2-2.0.1/share/locale/ro/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/ru
+/usr/local/cs/wget2-2.0.1/share/locale/ru/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/sk
+/usr/local/cs/wget2-2.0.1/share/locale/sk/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/sr
+/usr/local/cs/wget2-2.0.1/share/locale/sr/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/sv
+/usr/local/cs/wget2-2.0.1/share/locale/sv/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/tr
+/usr/local/cs/wget2-2.0.1/share/locale/tr/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/uk
+/usr/local/cs/wget2-2.0.1/share/locale/uk/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/vi
+/usr/local/cs/wget2-2.0.1/share/locale/vi/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/zh_CN
+/usr/local/cs/wget2-2.0.1/share/locale/zh_CN/LC_MESSAGES
+/usr/local/cs/bin
+/usr/local/cs/bin/.del
+/usr/local/cs/diffutils-3.9
+/usr/local/cs/diffutils-3.9/bin
+/usr/local/cs/diffutils-3.9/share
+/usr/local/cs/diffutils-3.9/share/info
+/usr/local/cs/diffutils-3.9/share/man
+/usr/local/cs/diffutils-3.9/share/man/man1
+/usr/local/cs/diffutils-3.9/share/locale
+/usr/local/cs/diffutils-3.9/share/locale/bg
+/usr/local/cs/diffutils-3.9/share/locale/bg/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/ca
+/usr/local/cs/diffutils-3.9/share/locale/ca/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/cs
+/usr/local/cs/diffutils-3.9/share/locale/cs/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/da
+/usr/local/cs/diffutils-3.9/share/locale/da/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/de
+/usr/local/cs/diffutils-3.9/share/locale/de/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/el
+/usr/local/cs/diffutils-3.9/share/locale/el/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/eo
+/usr/local/cs/diffutils-3.9/share/locale/eo/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/es
+/usr/local/cs/diffutils-3.9/share/locale/es/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/fi
+/usr/local/cs/diffutils-3.9/share/locale/fi/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/fr
+/usr/local/cs/diffutils-3.9/share/locale/fr/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/ga
+/usr/local/cs/diffutils-3.9/share/locale/ga/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/gl
+/usr/local/cs/diffutils-3.9/share/locale/gl/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/he
+/usr/local/cs/diffutils-3.9/share/locale/he/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/hr
+/usr/local/cs/diffutils-3.9/share/locale/hr/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/hu
+/usr/local/cs/diffutils-3.9/share/locale/hu/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/id
+/usr/local/cs/diffutils-3.9/share/locale/id/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/it
+/usr/local/cs/diffutils-3.9/share/locale/it/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/ja
+/usr/local/cs/diffutils-3.9/share/locale/ja/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/ka
+/usr/local/cs/diffutils-3.9/share/locale/ka/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/ko
+/usr/local/cs/diffutils-3.9/share/locale/ko/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/lv
+/usr/local/cs/diffutils-3.9/share/locale/lv/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/ms
+/usr/local/cs/diffutils-3.9/share/locale/ms/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/nb
+/usr/local/cs/diffutils-3.9/share/locale/nb/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/nl
+/usr/local/cs/diffutils-3.9/share/locale/nl/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/pl
+/usr/local/cs/diffutils-3.9/share/locale/pl/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/pt
+/usr/local/cs/diffutils-3.9/share/locale/pt/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/pt_BR
+/usr/local/cs/diffutils-3.9/share/locale/pt_BR/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/ro
+/usr/local/cs/diffutils-3.9/share/locale/ro/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/ru
+/usr/local/cs/diffutils-3.9/share/locale/ru/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/sr
+/usr/local/cs/diffutils-3.9/share/locale/sr/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/sv
+/usr/local/cs/diffutils-3.9/share/locale/sv/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/tr
+/usr/local/cs/diffutils-3.9/share/locale/tr/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/uk
+/usr/local/cs/diffutils-3.9/share/locale/uk/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/vi
+/usr/local/cs/diffutils-3.9/share/locale/vi/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/zh_CN
+/usr/local/cs/diffutils-3.9/share/locale/zh_CN/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/zh_TW
+/usr/local/cs/diffutils-3.9/share/locale/zh_TW/LC_MESSAGES
+/usr/local/cs/git-2.39.1
+/usr/local/cs/git-2.39.1/share
+/usr/local/cs/git-2.39.1/share/gitweb
+/usr/local/cs/git-2.39.1/share/gitweb/static
+/usr/local/cs/git-2.39.1/share/git-core
+/usr/local/cs/git-2.39.1/share/git-core/templates
+/usr/local/cs/git-2.39.1/share/git-core/templates/info
+/usr/local/cs/git-2.39.1/share/git-core/templates/hooks
+/usr/local/cs/git-2.39.1/share/git-core/templates/branches
+/usr/local/cs/git-2.39.1/share/locale
+/usr/local/cs/git-2.39.1/share/locale/zh_TW
+/usr/local/cs/git-2.39.1/share/locale/zh_TW/LC_MESSAGES
+/usr/local/cs/git-2.39.1/share/locale/zh_CN
+/usr/local/cs/git-2.39.1/share/locale/zh_CN/LC_MESSAGES
+/usr/local/cs/git-2.39.1/share/locale/vi
+/usr/local/cs/git-2.39.1/share/locale/vi/LC_MESSAGES
+/usr/local/cs/git-2.39.1/share/locale/tr
+/usr/local/cs/git-2.39.1/share/locale/tr/LC_MESSAGES
+/usr/local/cs/git-2.39.1/share/locale/sv
+/usr/local/cs/git-2.39.1/share/locale/sv/LC_MESSAGES
+/usr/local/cs/git-2.39.1/share/locale/ru
+/usr/local/cs/git-2.39.1/share/locale/ru/LC_MESSAGES
+/usr/local/cs/git-2.39.1/share/locale/pt_PT
+/usr/local/cs/git-2.39.1/share/locale/pt_PT/LC_MESSAGES
+/usr/local/cs/git-2.39.1/share/locale/pl
+/usr/local/cs/git-2.39.1/share/locale/pl/LC_MESSAGES
+/usr/local/cs/git-2.39.1/share/locale/ko
+/usr/local/cs/git-2.39.1/share/locale/ko/LC_MESSAGES
+/usr/local/cs/git-2.39.1/share/locale/it
+/usr/local/cs/git-2.39.1/share/locale/it/LC_MESSAGES
+/usr/local/cs/git-2.39.1/share/locale/is
+/usr/local/cs/git-2.39.1/share/locale/is/LC_MESSAGES
+/usr/local/cs/git-2.39.1/share/locale/id
+/usr/local/cs/git-2.39.1/share/locale/id/LC_MESSAGES
+/usr/local/cs/git-2.39.1/share/locale/fr
+/usr/local/cs/git-2.39.1/share/locale/fr/LC_MESSAGES
+/usr/local/cs/git-2.39.1/share/locale/es
+/usr/local/cs/git-2.39.1/share/locale/es/LC_MESSAGES
+/usr/local/cs/git-2.39.1/share/locale/el
+/usr/local/cs/git-2.39.1/share/locale/el/LC_MESSAGES
+/usr/local/cs/git-2.39.1/share/locale/de
+/usr/local/cs/git-2.39.1/share/locale/de/LC_MESSAGES
+/usr/local/cs/git-2.39.1/share/locale/ca
+/usr/local/cs/git-2.39.1/share/locale/ca/LC_MESSAGES
+/usr/local/cs/git-2.39.1/share/locale/bg
+/usr/local/cs/git-2.39.1/share/locale/bg/LC_MESSAGES
+/usr/local/cs/git-2.39.1/share/perl5
+/usr/local/cs/git-2.39.1/share/perl5/FromCPAN
+/usr/local/cs/git-2.39.1/share/perl5/FromCPAN/Mail
+/usr/local/cs/git-2.39.1/share/perl5/Git
+/usr/local/cs/git-2.39.1/share/perl5/Git/SVN
+/usr/local/cs/git-2.39.1/share/perl5/Git/SVN/Memoize
+/usr/local/cs/git-2.39.1/share/perl5/Git/LoadCPAN
+/usr/local/cs/git-2.39.1/share/perl5/Git/LoadCPAN/Mail
+/usr/local/cs/git-2.39.1/share/gitk
+/usr/local/cs/git-2.39.1/share/gitk/lib
+/usr/local/cs/git-2.39.1/share/gitk/lib/msgs
+/usr/local/cs/git-2.39.1/share/git-gui
+/usr/local/cs/git-2.39.1/share/git-gui/lib
+/usr/local/cs/git-2.39.1/share/git-gui/lib/msgs
+/usr/local/cs/git-2.39.1/bin
+/usr/local/cs/git-2.39.1/libexec
+/usr/local/cs/git-2.39.1/libexec/git-core
+/usr/local/cs/git-2.39.1/libexec/git-core/mergetools
+/usr/local/cs/Python-3.11.1
+/usr/local/cs/Python-3.11.1/bin
+/usr/local/cs/Python-3.11.1/include
+/usr/local/cs/Python-3.11.1/include/python3.11
+/usr/local/cs/Python-3.11.1/include/python3.11/cpython
+/usr/local/cs/Python-3.11.1/include/python3.11/internal
+/usr/local/cs/Python-3.11.1/share
+/usr/local/cs/Python-3.11.1/share/man
+/usr/local/cs/Python-3.11.1/share/man/man1
+/usr/local/cs/Python-3.11.1/lib
+/usr/local/cs/Python-3.11.1/lib/python3.11
+/usr/local/cs/Python-3.11.1/lib/python3.11/lib-dynload
+/usr/local/cs/Python-3.11.1/lib/python3.11/config-3.11-x86_64-linux-gnu
+/usr/local/cs/Python-3.11.1/lib/python3.11/config-3.11-x86_64-linux-gnu/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/asyncio
+/usr/local/cs/Python-3.11.1/lib/python3.11/asyncio/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/collections
+/usr/local/cs/Python-3.11.1/lib/python3.11/collections/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/concurrent
+/usr/local/cs/Python-3.11.1/lib/python3.11/concurrent/futures
+/usr/local/cs/Python-3.11.1/lib/python3.11/concurrent/futures/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/concurrent/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/ctypes
+/usr/local/cs/Python-3.11.1/lib/python3.11/ctypes/macholib
+/usr/local/cs/Python-3.11.1/lib/python3.11/ctypes/macholib/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/ctypes/test
+/usr/local/cs/Python-3.11.1/lib/python3.11/ctypes/test/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/ctypes/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/curses
+/usr/local/cs/Python-3.11.1/lib/python3.11/curses/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/dbm
+/usr/local/cs/Python-3.11.1/lib/python3.11/dbm/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/distutils
+/usr/local/cs/Python-3.11.1/lib/python3.11/distutils/command
+/usr/local/cs/Python-3.11.1/lib/python3.11/distutils/command/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/distutils/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/distutils/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/distutils/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/email
+/usr/local/cs/Python-3.11.1/lib/python3.11/email/mime
+/usr/local/cs/Python-3.11.1/lib/python3.11/email/mime/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/email/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/encodings
+/usr/local/cs/Python-3.11.1/lib/python3.11/encodings/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/ensurepip
+/usr/local/cs/Python-3.11.1/lib/python3.11/ensurepip/_bundled
+/usr/local/cs/Python-3.11.1/lib/python3.11/ensurepip/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/html
+/usr/local/cs/Python-3.11.1/lib/python3.11/html/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/http
+/usr/local/cs/Python-3.11.1/lib/python3.11/http/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/idlelib
+/usr/local/cs/Python-3.11.1/lib/python3.11/idlelib/Icons
+/usr/local/cs/Python-3.11.1/lib/python3.11/idlelib/idle_test
+/usr/local/cs/Python-3.11.1/lib/python3.11/idlelib/idle_test/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/idlelib/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/importlib
+/usr/local/cs/Python-3.11.1/lib/python3.11/importlib/resources
+/usr/local/cs/Python-3.11.1/lib/python3.11/importlib/resources/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/importlib/metadata
+/usr/local/cs/Python-3.11.1/lib/python3.11/importlib/metadata/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/importlib/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/json
+/usr/local/cs/Python-3.11.1/lib/python3.11/json/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/lib2to3
+/usr/local/cs/Python-3.11.1/lib/python3.11/lib2to3/fixes
+/usr/local/cs/Python-3.11.1/lib/python3.11/lib2to3/fixes/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/lib2to3/pgen2
+/usr/local/cs/Python-3.11.1/lib/python3.11/lib2to3/pgen2/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/lib2to3/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/lib2to3/tests/data
+/usr/local/cs/Python-3.11.1/lib/python3.11/lib2to3/tests/data/fixers
+/usr/local/cs/Python-3.11.1/lib/python3.11/lib2to3/tests/data/fixers/myfixes
+/usr/local/cs/Python-3.11.1/lib/python3.11/lib2to3/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/lib2to3/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/logging
+/usr/local/cs/Python-3.11.1/lib/python3.11/logging/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/multiprocessing
+/usr/local/cs/Python-3.11.1/lib/python3.11/multiprocessing/dummy
+/usr/local/cs/Python-3.11.1/lib/python3.11/multiprocessing/dummy/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/multiprocessing/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/pydoc_data
+/usr/local/cs/Python-3.11.1/lib/python3.11/pydoc_data/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/re
+/usr/local/cs/Python-3.11.1/lib/python3.11/re/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/_distutils_hack
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/_distutils_hack/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pkg_resources
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pkg_resources/_vendor
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pkg_resources/_vendor/importlib_resources
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pkg_resources/_vendor/importlib_resources/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pkg_resources/_vendor/jaraco
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pkg_resources/_vendor/jaraco/text
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pkg_resources/_vendor/jaraco/text/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pkg_resources/_vendor/jaraco/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pkg_resources/_vendor/more_itertools
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pkg_resources/_vendor/more_itertools/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pkg_resources/_vendor/packaging
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pkg_resources/_vendor/packaging/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pkg_resources/_vendor/pyparsing
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pkg_resources/_vendor/pyparsing/diagram
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pkg_resources/_vendor/pyparsing/diagram/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pkg_resources/_vendor/pyparsing/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pkg_resources/_vendor/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pkg_resources/extern
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pkg_resources/extern/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pkg_resources/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_distutils
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_distutils/command
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_distutils/command/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_distutils/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_vendor
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_vendor/importlib_metadata
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_vendor/importlib_metadata/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_vendor/importlib_resources
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_vendor/importlib_resources/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_vendor/jaraco
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_vendor/jaraco/text
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_vendor/jaraco/text/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_vendor/jaraco/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_vendor/more_itertools
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_vendor/more_itertools/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_vendor/packaging
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_vendor/packaging/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_vendor/pyparsing
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_vendor/pyparsing/diagram
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_vendor/pyparsing/diagram/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_vendor/pyparsing/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_vendor/tomli
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_vendor/tomli/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/_vendor/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/command
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/command/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/config
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/config/_validate_pyproject
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/config/_validate_pyproject/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/config/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/extern
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/extern/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/setuptools-65.5.0.dist-info
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/cli
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/cli/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/commands
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/commands/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/distributions
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/distributions/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/index
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/index/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/locations
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/locations/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/metadata
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/metadata/importlib
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/metadata/importlib/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/metadata/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/models
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/models/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/network
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/network/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/operations
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/operations/build
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/operations/build/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/operations/install
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/operations/install/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/operations/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/req
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/req/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/resolution
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/resolution/legacy
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/resolution/legacy/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/resolution/resolvelib
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/resolution/resolvelib/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/resolution/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/utils
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/utils/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/vcs
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/vcs/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_internal/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/cachecontrol
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/cachecontrol/caches
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/cachecontrol/caches/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/cachecontrol/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/certifi
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/certifi/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/chardet
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/chardet/cli
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/chardet/cli/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/chardet/metadata
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/chardet/metadata/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/chardet/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/colorama
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/colorama/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/distlib
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/distlib/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/distro
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/distro/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/idna
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/idna/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/msgpack
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/msgpack/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/packaging
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/packaging/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/pep517
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/pep517/in_process
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/pep517/in_process/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/pep517/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/pkg_resources
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/pkg_resources/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/platformdirs
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/platformdirs/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/pygments
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/pygments/filters
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/pygments/filters/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/pygments/formatters
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/pygments/formatters/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/pygments/lexers
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/pygments/lexers/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/pygments/styles
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/pygments/styles/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/pygments/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/pyparsing
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/pyparsing/diagram
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/pyparsing/diagram/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/pyparsing/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/requests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/requests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/resolvelib
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/resolvelib/compat
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/resolvelib/compat/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/resolvelib/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/rich
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/rich/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/tenacity
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/tenacity/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/tomli
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/tomli/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/urllib3
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/urllib3/contrib
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/urllib3/contrib/_securetransport
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/urllib3/contrib/_securetransport/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/urllib3/contrib/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/urllib3/packages
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/urllib3/packages/backports
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/urllib3/packages/backports/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/urllib3/packages/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/urllib3/util
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/urllib3/util/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/urllib3/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/webencodings
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/webencodings/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/_vendor/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pip-22.3.1.dist-info
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pycparser
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pycparser/ply
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pycparser/ply/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pycparser/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pycparser-2.21.dist-info
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/multidict
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/multidict/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/multidict-6.0.4.dist-info
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/idna
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/idna/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/idna-3.4.dist-info
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/frozenlist
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/frozenlist/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/frozenlist-1.3.3.dist-info
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/charset_normalizer
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/charset_normalizer/assets
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/charset_normalizer/assets/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/charset_normalizer/cli
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/charset_normalizer/cli/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/charset_normalizer/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/charset_normalizer-2.1.1.dist-info
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/attr
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/attr/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/attrs
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/attrs/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/attrs-22.2.0.dist-info
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/async_timeout
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/async_timeout/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/async_timeout-4.0.2.dist-info
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/yarl-1.8.2.dist-info
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/yarl
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/yarl/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/cffi-1.15.1.dist-info
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/cffi
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/cffi/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/aiosignal
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/aiosignal/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/aiosignal-1.3.1.dist-info
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pycares-4.3.0.dist-info
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pycares
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/pycares/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/aiohttp-3.8.3.dist-info
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/aiohttp
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/aiohttp/.hash
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/aiohttp/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/aiodns
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/aiodns/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/aiodns-3.0.0.dist-info
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/typing
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/typing/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/typing/tests/data
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/typing/tests/data/misc
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/typing/tests/data/reveal
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/typing/tests/data/pass
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/typing/tests/data/pass/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/typing/tests/data/fail
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/typing/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/typing/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/lib
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/lib/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/lib/tests/data
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/lib/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/lib/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/distutils
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/distutils/checks
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/distutils/command
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/distutils/command/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/distutils/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/distutils/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/distutils/fcompiler
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/distutils/fcompiler/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/distutils/mingw
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/distutils/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/linalg
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/linalg/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/linalg/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/linalg/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/testing
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/testing/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/testing/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/testing/_private
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/testing/_private/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/testing/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/random
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/random/lib
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/random/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/random/tests/data
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/random/tests/data/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/random/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/random/_examples
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/random/_examples/cython
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/random/_examples/cython/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/random/_examples/cffi
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/random/_examples/cffi/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/random/_examples/numba
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/random/_examples/numba/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/random/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/compat
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/compat/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/compat/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/compat/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/ma
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/ma/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/ma/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/ma/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/callback
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/common
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/parameter
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/quoted_character
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/regression
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/array_from_pyobj
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/return_character
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/crackfortran
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/kind
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/mixed
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/return_real
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/return_logical
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/size
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/cli
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/value_attrspec
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/return_integer
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/module_data
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/abstract_interface
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/f2cmap
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/block_docstring
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/assumed_shape
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/string
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/return_complex
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/src/negative_bounds
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/src
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/f2py/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/matrixlib
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/matrixlib/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/matrixlib/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/matrixlib/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/doc
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/doc/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/_pyinstaller
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/_pyinstaller/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/_typing
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/_typing/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/array_api
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/array_api/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/array_api/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/array_api/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/polynomial
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/polynomial/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/polynomial/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/polynomial/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/core
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/core/lib
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/core/lib/npy-pkg-config
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/core/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/core/tests/examples
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/core/tests/examples/limited_api
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/core/tests/examples/limited_api/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/core/tests/examples/cython
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/core/tests/examples/cython/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/core/tests/data
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/core/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/core/include
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/core/include/numpy
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/core/include/numpy/libdivide
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/core/include/numpy/random
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/core/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/fft
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/fft/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/fft/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/fft/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy.libs
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/numpy-1.24.1.dist-info
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/misc
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/misc/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/misc/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/misc/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/io
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/io/_harwell_boeing
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/io/_harwell_boeing/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/io/_harwell_boeing/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/io/_harwell_boeing/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/io/arff
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/io/arff/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/io/arff/tests/data
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/io/arff/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/io/arff/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/io/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/io/tests/data
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/io/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/io/matlab
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/io/matlab/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/io/matlab/tests/data
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/io/matlab/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/io/matlab/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/io/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/optimize
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/optimize/_shgo_lib
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/optimize/_shgo_lib/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/optimize/_trlib
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/optimize/_trlib/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/optimize/cython_optimize
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/optimize/cython_optimize/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/optimize/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/optimize/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/optimize/_trustregion_constr
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/optimize/_trustregion_constr/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/optimize/_trustregion_constr/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/optimize/_trustregion_constr/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/optimize/_lsq
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/optimize/_lsq/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/optimize/_highs
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/optimize/_highs/src
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/optimize/_highs/src/cython
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/optimize/_highs/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/optimize/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/special
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/special/_precompute
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/special/_precompute/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/special/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/special/tests/data
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/special/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/special/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/cluster
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/cluster/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/cluster/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/cluster/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/stats
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/stats/_levy_stable
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/stats/_levy_stable/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/stats/_boost
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/stats/_boost/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/stats/_unuran
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/stats/_unuran/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/stats/_rcont
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/stats/_rcont/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/stats/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/stats/tests/data
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/stats/tests/data/nist_linregress
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/stats/tests/data/levy_stable
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/stats/tests/data/nist_anova
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/stats/tests/data/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/stats/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/stats/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/_dsolve
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/_dsolve/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/_dsolve/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/_dsolve/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/_propack
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/_isolve
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/_isolve/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/_isolve/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/_isolve/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/_eigen
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/_eigen/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/_eigen/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/_eigen/arpack
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/_eigen/arpack/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/_eigen/arpack/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/_eigen/arpack/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/_eigen/lobpcg
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/_eigen/lobpcg/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/_eigen/lobpcg/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/_eigen/lobpcg/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/_eigen/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/linalg/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/tests/data
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/csgraph
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/csgraph/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/csgraph/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/csgraph/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/sparse/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/linalg
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/linalg/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/linalg/tests/data
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/linalg/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/linalg/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/signal
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/signal/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/signal/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/signal/windows
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/signal/windows/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/signal/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/integrate
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/integrate/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/integrate/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/integrate/_ivp
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/integrate/_ivp/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/integrate/_ivp/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/integrate/_ivp/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/integrate/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/spatial
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/spatial/qhull_src
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/spatial/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/spatial/tests/data
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/spatial/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/spatial/transform
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/spatial/transform/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/spatial/transform/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/spatial/transform/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/spatial/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/datasets
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/datasets/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/datasets/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/datasets/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/ndimage
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/ndimage/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/ndimage/tests/data
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/ndimage/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/ndimage/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/interpolate
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/interpolate/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/interpolate/tests/data
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/interpolate/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/interpolate/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/fftpack
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/fftpack/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/fftpack/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/fftpack/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/_lib
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/_lib/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/_lib/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/_lib/_uarray
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/_lib/_uarray/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/_lib/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/odr
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/odr/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/odr/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/odr/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/constants
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/constants/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/constants/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/constants/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/fft
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/fft/_pocketfft
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/fft/_pocketfft/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/fft/_pocketfft/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/fft/_pocketfft/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/fft/tests
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/fft/tests/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/fft/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy-1.10.0.dist-info
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/scipy.libs
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/Brotli-1.0.9.dist-info
+/usr/local/cs/Python-3.11.1/lib/python3.11/site-packages/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/sqlite3
+/usr/local/cs/Python-3.11.1/lib/python3.11/sqlite3/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/tkinter
+/usr/local/cs/Python-3.11.1/lib/python3.11/tkinter/test
+/usr/local/cs/Python-3.11.1/lib/python3.11/tkinter/test/test_tkinter
+/usr/local/cs/Python-3.11.1/lib/python3.11/tkinter/test/test_tkinter/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/tkinter/test/test_ttk
+/usr/local/cs/Python-3.11.1/lib/python3.11/tkinter/test/test_ttk/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/tkinter/test/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/tkinter/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/tomllib
+/usr/local/cs/Python-3.11.1/lib/python3.11/tomllib/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/turtledemo
+/usr/local/cs/Python-3.11.1/lib/python3.11/turtledemo/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/unittest
+/usr/local/cs/Python-3.11.1/lib/python3.11/unittest/test
+/usr/local/cs/Python-3.11.1/lib/python3.11/unittest/test/testmock
+/usr/local/cs/Python-3.11.1/lib/python3.11/unittest/test/testmock/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/unittest/test/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/unittest/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/urllib
+/usr/local/cs/Python-3.11.1/lib/python3.11/urllib/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/venv
+/usr/local/cs/Python-3.11.1/lib/python3.11/venv/scripts
+/usr/local/cs/Python-3.11.1/lib/python3.11/venv/scripts/common
+/usr/local/cs/Python-3.11.1/lib/python3.11/venv/scripts/posix
+/usr/local/cs/Python-3.11.1/lib/python3.11/venv/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/wsgiref
+/usr/local/cs/Python-3.11.1/lib/python3.11/wsgiref/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/xml
+/usr/local/cs/Python-3.11.1/lib/python3.11/xml/dom
+/usr/local/cs/Python-3.11.1/lib/python3.11/xml/dom/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/xml/etree
+/usr/local/cs/Python-3.11.1/lib/python3.11/xml/etree/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/xml/parsers
+/usr/local/cs/Python-3.11.1/lib/python3.11/xml/parsers/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/xml/sax
+/usr/local/cs/Python-3.11.1/lib/python3.11/xml/sax/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/xml/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/xmlrpc
+/usr/local/cs/Python-3.11.1/lib/python3.11/xmlrpc/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/zoneinfo
+/usr/local/cs/Python-3.11.1/lib/python3.11/zoneinfo/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/__phello__
+/usr/local/cs/Python-3.11.1/lib/python3.11/__phello__/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/audiodata
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/capath
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/cjkencodings
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/data
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/decimaltestdata
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/dtracedata
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/dtracedata/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/encoded_modules
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/encoded_modules/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/imghdrdata
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/libregrtest
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/libregrtest/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/sndhdrdata
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/subprocessdata
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/subprocessdata/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/support
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/support/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_asyncio
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_asyncio/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_email
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_email/data
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_email/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_import
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_import/data
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_import/data/circular_imports
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_import/data/circular_imports/subpkg
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_import/data/circular_imports/subpkg/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_import/data/circular_imports/subpkg2
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_import/data/circular_imports/subpkg2/parent
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_import/data/circular_imports/subpkg2/parent/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_import/data/circular_imports/subpkg2/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_import/data/circular_imports/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_import/data/package
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_import/data/package/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_import/data/package2
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_import/data/package2/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_import/data/unwritable
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_import/data/unwritable/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_import/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/builtin
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/builtin/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/data
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/data/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/data01
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/data01/subdirectory
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/data01/subdirectory/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/data01/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/data02
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/data02/one
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/data02/one/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/data02/two
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/data02/two/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/data02/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/data03
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/data03/namespace
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/data03/namespace/portion1
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/data03/namespace/portion1/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/data03/namespace/portion2
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/data03/namespace/portion2/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/data03/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/extension
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/extension/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/frozen
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/frozen/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/import_
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/import_/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/both_portions
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/both_portions/foo
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/both_portions/foo/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/module_and_namespace_package
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/module_and_namespace_package/a_test
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/module_and_namespace_package/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/not_a_namespace_pkg
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/not_a_namespace_pkg/foo
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/not_a_namespace_pkg/foo/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/portion1
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/portion1/foo
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/portion1/foo/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/portion2
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/portion2/foo
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/portion2/foo/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/project1
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/project1/parent
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/project1/parent/child
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/project1/parent/child/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/project2
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/project2/parent
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/project2/parent/child
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/project2/parent/child/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/project3
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/project3/parent
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/project3/parent/child
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespace_pkgs/project3/parent/child/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/namespacedata01
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/partial
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/partial/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/resources
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/resources/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/source
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/source/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/zipdata01
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/zipdata01/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/zipdata02
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/zipdata02/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_importlib/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_json
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_json/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_peg_generator
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_peg_generator/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_tools
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_tools/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_warnings
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_warnings/data
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_warnings/data/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_warnings/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_zoneinfo
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_zoneinfo/data
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_zoneinfo/data/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/test_zoneinfo/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/tracedmodules
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/tracedmodules/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/typinganndata
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/typinganndata/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/xmltestdata
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/xmltestdata/c14n-20
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/ziptestdata
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/ziptestdata/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/test/__pycache__
+/usr/local/cs/Python-3.11.1/lib/python3.11/__pycache__
+/usr/local/cs/Python-3.11.1/lib/pkgconfig
+/usr/local/cs/share/info
+/usr/local/cs/share/man/man1
+/usr/local/cs/src
+/usr/local/cs/src/aiohttp
+/usr/local/cs/src/aiohttp/RCS
+/usr/local/cs/src/git
+/usr/local/cs/src/git/RCS
+/usr/local/cs/src/python
+/usr/local/cs/src/python/RCS
+/usr/local/cs/src/diffutils
+/usr/local/cs/src/diffutils/RCS
+/usr/local/cs/src/nodejs
+/usr/local/cs/src/nodejs/RCS
+/usr/local/cs/src/wget2
+/usr/local/cs/src/wget2/RCS
+/usr/local/cs/.del
+/usr/local/cs/.del/diffutils-3.8
+/usr/local/cs/.del/texinfo-6.8
+/usr/local/cs/.del/ocaml-4.14.0
+/usr/local/cs/.del/git-2.38.1
+
+7. Using which find, find is in /usr/bin/
+Using ls -l | grep '^l' | wc -l,
+ls to list files, grep to filter only links, and wc to count the number of lines.
+There are 258 symbolic links in /usr/bin/.
+
+8. Navigating to /usr/lib64/ with cd, then using ls -alt
+a for all files, l for the long list format, then t to sort by time (newest first).
+So the oldest file will be the last line of output, which is a symbolic link
+libbz2.so.1 -> libbz2.so.1.0.6
+Last modified Aug 12  2018.
+
+9. In emacs, using C-h a transpose results in:
+transpose-chars               C-t
+   Interchange characters around point, moving forward one character.
+transpose-lines               C-x C-t
+   Exchange current line and previous line, leaving point after both.
+transpose-paragraphs          M-x ... RET
+   Interchange the current paragraph with the next one.
+transpose-regions             M-x ... RET
+   Transpose region STARTR1 to ENDR1 with STARTR2 to ENDR2.
+transpose-sentences           M-x ... RET
+   Interchange the current sentence with the next one.
+transpose-sexps               C-M-t
+   Like \[transpose-chars] (`transpose-chars'), but applies to sexps.
+transpose-words               M-t
+   Interchange words around point, leaving point at end of them.
+
+10. yank reinserts text that you have previously killed. It is mainly used to implement cut/copy/paste.
+The keystroke for yank is C-y.
+
+11. Running ls -l in the /usr/bin directory and running C-x d in emacs in the same directory,
+There are 310300 entries for ls -l.
+There are 310376 entries for dired.
+
+Dired shows hidden files that ls -l does not show (such as . and ..), and it also
+outputs the space used in the directory (6.8 GiB).
+
+12. Using ps -efH results in
+
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           2       0  0  2022 ?        00:00:07 [kthreadd]
+root           3       2  0  2022 ?        00:00:00   [rcu_gp]
+root           4       2  0  2022 ?        00:00:00   [rcu_par_gp]
+root           6       2  0  2022 ?        00:00:00   [kworker/0:0H-events_highpri]
+root           9       2  0  2022 ?        00:00:00   [mm_percpu_wq]
+root          10       2  0  2022 ?        00:04:31   [ksoftirqd/0]
+root          11       2  0  2022 ?        01:56:52   [rcu_sched]
+root          12       2  0  2022 ?        00:00:05   [migration/0]
+root          13       2  0  2022 ?        00:00:03   [watchdog/0]
+root          14       2  0  2022 ?        00:00:00   [cpuhp/0]
+root          15       2  0  2022 ?        00:00:00   [cpuhp/1]
+root          16       2  0  2022 ?        00:00:26   [watchdog/1]
+root          17       2  0  2022 ?        00:00:05   [migration/1]
+root          18       2  0  2022 ?        00:04:36   [ksoftirqd/1]
+root          20       2  0  2022 ?        00:00:00   [kworker/1:0H-events_highpri]
+root          21       2  0  2022 ?        00:00:00   [cpuhp/2]
+root          22       2  0  2022 ?        00:00:31   [watchdog/2]
+root          23       2  0  2022 ?        00:00:07   [migration/2]
+root          24       2  0  2022 ?        00:04:31   [ksoftirqd/2]
+root          26       2  0  2022 ?        00:00:00   [kworker/2:0H-events_highpri]
+root          27       2  0  2022 ?        00:00:00   [cpuhp/3]
+root          28       2  0  2022 ?        00:00:22   [watchdog/3]
+root          29       2  0  2022 ?        00:00:05   [migration/3]
+root          30       2  0  2022 ?        00:04:34   [ksoftirqd/3]
+root          32       2  0  2022 ?        00:00:00   [kworker/3:0H-events_highpri]
+root          37       2  0  2022 ?        00:00:00   [kdevtmpfs]
+root          38       2  0  2022 ?        00:00:00   [netns]
+root          39       2  0  2022 ?        00:00:00   [rcu_tasks_trace]
+root          40       2  0  2022 ?        00:00:00   [rcu_tasks_rude_]
+root          41       2  0  2022 ?        00:00:24   [kauditd]
+root          43       2  0  2022 ?        00:00:14   [khungtaskd]
+root          44       2  0  2022 ?        00:00:00   [oom_reaper]
+root          45       2  0  2022 ?        00:00:00   [writeback]
+root          46       2  0  2022 ?        00:00:14   [kcompactd0]
+root          47       2  0  2022 ?        00:00:00   [ksmd]
+root          48       2  0  2022 ?        00:12:37   [khugepaged]
+root          49       2  0  2022 ?        00:00:00   [crypto]
+root          50       2  0  2022 ?        00:00:00   [kintegrityd]
+root          51       2  0  2022 ?        00:00:00   [kblockd]
+root          52       2  0  2022 ?        00:00:00   [blkcg_punt_bio]
+root          53       2  0  2022 ?        00:00:00   [tpm_dev_wq]
+root          54       2  0  2022 ?        00:00:00   [md]
+root          55       2  0  2022 ?        00:00:00   [edac-poller]
+root          56       2  0  2022 ?        00:00:00   [watchdogd]
+root          58       2  0  2022 ?        00:00:16   [kworker/0:1H-kblockd]
+root          92       2  0  2022 ?        00:02:49   [kswapd0]
+root         194       2  0  2022 ?        00:00:00   [kthrotld]
+root         195       2  0  2022 ?        00:00:00   [acpi_thermal_pm]
+root         196       2  0  2022 ?        00:00:00   [kmpath_rdacd]
+root         197       2  0  2022 ?        00:00:00   [kaluad]
+root         198       2  0  2022 ?        00:00:18   [kworker/3:1H-kblockd]
+root         199       2  0  2022 ?        00:00:00   [ipv6_addrconf]
+root         200       2  0  2022 ?        00:00:00   [kstrp]
+root         288       2  0  2022 ?        00:00:19   [kworker/1:1H-kblockd]
+root         318       2  0  2022 ?        00:00:20   [kworker/2:1H-kblockd]
+root         523       2  0  2022 ?        00:00:00   [hv_vmbus_con]
+root         525       2  0  2022 ?        00:00:00   [hv_pri_chan]
+root         526       2  0  2022 ?        00:00:00   [hv_sub_chan]
+root         539       2  0  2022 ?        00:00:00   [scsi_eh_0]
+root         540       2  0  2022 ?        00:00:00   [scsi_tmf_0]
+root         541       2  0  2022 ?        00:00:00   [storvsc_error_w]
+root         599       2  0  2022 ?        00:00:00   [kdmflush]
+root         608       2  0  2022 ?        00:00:00   [kdmflush]
+root         623       2  0  2022 ?        00:00:00   [kdmflush]
+root         647       2  0  2022 ?        00:00:02   [jbd2/dm-0-8]
+root         648       2  0  2022 ?        00:00:00   [ext4-rsv-conver]
+root         691       2  0  2022 ?        00:00:04   [jbd2/dm-2-8]
+root         692       2  0  2022 ?        00:00:00   [ext4-rsv-conver]
+root         919       2  0  2022 ?        00:03:38   [hv_balloon]
+root         963       2  0  2022 ?        00:00:00   [kdmflush]
+root         964       2  0  2022 ?        00:00:00   [kdmflush]
+root         965       2  0  2022 ?        00:00:00   [kdmflush]
+root         974       2  0  2022 ?        00:00:00   [nfit]
+root        1038       2  0  2022 ?        00:04:19   [jbd2/dm-3-8]
+root        1039       2  0  2022 ?        00:00:00   [ext4-rsv-conver]
+root        1044       2  0  2022 ?        00:00:00   [jbd2/dm-5-8]
+root        1045       2  0  2022 ?        00:00:00   [ext4-rsv-conver]
+root        1049       2  0  2022 ?        00:00:23   [jbd2/dm-4-8]
+root        1050       2  0  2022 ?        00:00:00   [ext4-rsv-conver]
+root        1051       2  0  2022 ?        00:00:00   [jbd2/sda2-8]
+root        1052       2  0  2022 ?        00:00:00   [ext4-rsv-conver]
+root        1091       2  0  2022 ?        00:00:00   [rpciod]
+root        1093       2  0  2022 ?        00:00:00   [xprtiod]
+root        1553       2  0  2022 ?        00:00:00   [nfsiod]
+root        1852       2  0  2022 ?        00:00:00   [lockd]
+root      166079       2  0 12:38 ?        00:00:08   [kworker/u480:2-events_unbound]
+root      258742       2  0 16:06 ?        00:00:05   [kworker/u481:1-xprtiod]
+root      259360       2  0 16:10 ?        00:00:00   [kworker/3:0-events]
+root      259362       2  0 16:10 ?        00:00:00   [kworker/2:2-events_power_efficient]
+root      259381       2  0 16:10 ?        00:00:00   [kworker/1:2-events]
+root      259382       2  0 16:10 ?        00:00:00   [kworker/0:0-cgroup_destroy]
+root      259876       2  0 16:15 ?        00:00:00   [kworker/3:6-cgroup_destroy]
+root      260285       2  0 16:17 ?        00:00:01   [kworker/u481:2-xprtiod]
+root      260323       2  0 16:17 ?        00:00:00   [kworker/u480:1-nfsiod]
+root      260481       2  0 16:18 ?        00:00:00   [kworker/2:0-cgroup_pidlist_destroy]
+root      260970       2  0 16:19 ?        00:00:00   [kworker/0:3-cgroup_pidlist_destroy]
+root      261950       2  0 16:24 ?        00:00:00   [kworker/u480:0-events_unbound]
+root      262418       2  0 16:25 ?        00:00:00   [kworker/3:1-events]
+root      263080       2  0 16:27 ?        00:00:00   [kworker/1:7-cgroup_pidlist_destroy]
+root      263081       2  0 16:27 ?        00:00:00   [kworker/1:8-events]
+root      263194       2  0 16:29 ?        00:00:00   [kworker/2:1-events]
+root      263567       2  0 16:32 ?        00:00:00   [kworker/3:2-events]
+root      263570       2  0 16:32 ?        00:00:00   [kworker/u481:0-xprtiod]
+root      263581       2  0 16:32 ?        00:00:00   [kworker/3:3-events]
+root      263582       2  0 16:32 ?        00:00:00   [kworker/3:4]
+root      263583       2  0 16:32 ?        00:00:00   [kworker/3:5]
+root      263673       2  0 16:32 ?        00:00:00   [kworker/u480:3-rpciod]
+root      263747       2  0 16:34 ?        00:00:00   [kworker/0:1-mm_percpu_wq]
+root           1       0  0  2022 ?        00:45:31 /usr/lib/systemd/systemd --switched-root --system --deserialize 18
+root         799       1  0  2022 ?        00:00:25   /usr/lib/systemd/systemd-udevd
+rpc         1083       1  0  2022 ?        00:49:58   /usr/bin/rpcbind -w -f
+root        1085       1  0  2022 ?        00:04:49   /sbin/auditd
+root        1087    1085  0  2022 ?        00:01:46     /usr/sbin/sedispatch
+root        1115       1  0  2022 ?        00:00:00   /usr/sbin/mcelog --ignorenodev --daemon --foreground
+root        1119       1  0  2022 ?        00:00:01   /usr/sbin/smartd -n -q never
+root        1121       1  0  2022 ?        00:17:35   /usr/sbin/irqbalance --foreground
+root        1124       1  0  2022 ?        00:00:00   /usr/sbin/hypervvssd -n
+dbus        1126       1  0  2022 ?        00:32:24   /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --s
+root        1130       1  0  2022 ?        00:00:22   /usr/sbin/sssd -i --logger=files
+root        1162    1130  0  2022 ?        00:02:14     /usr/libexec/sssd/sssd_be --domain implicit_files --uid 0 --gid 0 --log
+root        1163    1130  0  2022 ?        00:02:04     /usr/libexec/sssd/sssd_nss --uid 0 --gid 0 --logger=files
+root        1132       1  0  2022 ?        00:00:00   /usr/sbin/gpm -m /dev/input/mice -t exps2
+avahi       1136       1  0  2022 ?        00:01:02   avahi-daemon: running [lnxsrv15.local]
+avahi       1148    1136  0  2022 ?        00:00:00     avahi-daemon: chroot helper
+libstor+    1137       1  0  2022 ?        00:00:34   /usr/bin/lsmd -d
+polkitd     1138       1  0  2022 ?        01:08:23   /usr/lib/polkit-1/polkitd --no-debug
+rngd        1140       1  0  2022 ?        02:54:32   /usr/sbin/rngd -f --fill-watermark=0
+chrony      1146       1  0  2022 ?        00:00:26   /usr/sbin/chronyd
+root        1161       1  0  2022 ?        00:00:02   /usr/libexec/platform-python -s /usr/sbin/firewalld --nofork --nopid
+root        1171       1  0  2022 ?        02:16:38   /usr/sbin/NetworkManager --no-daemon
+root        1176       1  0  2022 ?        00:18:49   /usr/sbin/ypserv -f -p 888
+root        1185       1  0  2022 ?        00:00:57   /usr/sbin/sshd -D -oCiphers=aes256-gcm@openssh.com,chacha20-poly1305@open
+root     4183945    1185  0 Jan19 ?        00:00:00     sshd: andersot [priv]
+andersot 4183963 4183945  0 Jan19 ?        00:00:00       sshd: andersot@notty
+andersot 4183973 4183963  0 Jan19 ?        00:00:00         bash
+andersot 4184156 4183973  0 Jan19 ?        00:00:00           sh /u/ee/ugrad/andersot/.vscode-server/bin/6261075646f055b99068d3
+andersot 4184174 4184156  0 Jan19 ?        00:00:15             /w/home.18/ee/ugrad/andersot/.vscode-server/bin/6261075646f055b
+andersot 4184421 4184174  0 Jan19 ?        00:00:40               /w/home.18/ee/ugrad/andersot/.vscode-server/bin/6261075646f05
+andersot 4185373 4184421  0 Jan19 pts/47   00:00:00                 /usr/local/cs/bin/bash --init-file /w/home.18/ee/ugrad/ande
+andersot 4185574 4185373  0 Jan19 pts/47   00:00:00                   man which
+andersot 4185586 4185574  0 Jan19 pts/47   00:00:00                     less
+andersot     888 4184421  0 Jan19 pts/6    00:00:00                 /usr/local/cs/bin/bash --init-file /w/home.18/ee/ugrad/ande
+andersot 4184652 4184174  0 Jan19 ?        00:00:51               /w/home.18/ee/ugrad/andersot/.vscode-server/bin/6261075646f05
+andersot 4184663 4184174  0 Jan19 ?        00:00:02               /w/home.18/ee/ugrad/andersot/.vscode-server/bin/6261075646f05
+andersot  263715 4183973  0 16:33 ?        00:00:00           sleep 180
+root     4184577    1185  0 Jan19 ?        00:00:00     sshd: andersot [priv]
+andersot 4184580 4184577  0 Jan19 ?        00:00:02       sshd: andersot@notty
+andersot 4184582 4184580  0 Jan19 ?        00:00:00         bash
+andersot  263743 4184582  0 16:34 ?        00:00:00           sleep 180
+root       77461    1185  0 10:27 ?        00:00:00     sshd: seoungmi [priv]
+seoungmi   77472   77461  0 10:27 ?        00:00:00       sshd: seoungmi@pts/35
+seoungmi   77474   77472  0 10:27 pts/35   00:00:00         -bash
+root      208721    1185  0 12:51 ?        00:00:00     sshd: jadon [priv]
+jadon     208725  208721  0 12:51 ?        00:00:00       sshd: jadon@pts/65
+jadon     208727  208725  0 12:51 pts/65   00:00:00         -bash
+jadon     250658  208727  0 15:31 pts/65   00:00:00           nano notes.txt
+root      210703    1185  0 13:04 ?        00:00:00     sshd: classenv [priv]
+classenv  210724  210703  0 13:04 ?        00:00:00       sshd: classenv@notty
+classenv  210728  210724  0 13:04 ?        00:00:00         bash
+classenv  211027  210728  0 13:05 ?        00:00:00           sh /u/eng/class/classenv/.vscode-server/bin/97dec172d3256f8ca4bfb
+classenv  211039  211027  0 13:05 ?        00:00:09             /w/home.06/class/classenv/.vscode-server/bin/97dec172d3256f8ca4
+classenv  211323  211039  0 13:05 ?        00:00:13               /w/home.06/class/classenv/.vscode-server/bin/97dec172d3256f8c
+classenv  212064  211323  0 13:08 pts/5    00:00:00                 /usr/local/cs/bin/bash --init-file /w/home.06/class/classen
+classenv  253417  212064  0 15:44 pts/5    00:00:01                   emacs
+classenv  258027  253417  0 16:04 pts/1    00:00:00                     /bin/bash --noediting -i
+classenv  211766  211039  0 13:07 ?        00:00:15               /w/home.06/class/classenv/.vscode-server/bin/97dec172d3256f8c
+classenv  211777  211039  0 13:07 ?        00:00:00               /w/home.06/class/classenv/.vscode-server/bin/97dec172d3256f8c
+classenv  263560  210728  0 16:32 ?        00:00:00           sleep 180
+root      211661    1185  0 13:06 ?        00:00:00     sshd: classenv [priv]
+classenv  211691  211661  0 13:07 ?        00:00:01       sshd: classenv@notty
+classenv  211693  211691  0 13:07 ?        00:00:00         bash
+classenv  263738  211693  0 16:34 ?        00:00:00           sleep 180
+root      212217    1185  0 13:08 ?        00:00:00     sshd: classlhu [priv]
+classlhu  212236  212217  0 13:08 ?        00:00:00       sshd: classlhu@pts/10
+classlhu  212240  212236  0 13:08 pts/10   00:00:00         -bash
+root      212219    1185  0 13:08 ?        00:00:00     sshd: luuk [priv]
+luuk      212293  212219  0 13:09 ?        00:00:00       sshd: luuk@pts/73
+luuk      212295  212293  0 13:09 pts/73   00:00:00         -bash
+luuk      218289  212295  0 13:26 pts/73   00:00:00           emacs
+luuk      238457  212295  0 14:52 pts/73   00:00:00           emacs
+root      219211    1185  0 13:30 ?        00:00:00     sshd: tiffanyt [priv]
+tiffanyt  219219  219211  0 13:30 ?        00:00:00       sshd: tiffanyt@pts/42
+tiffanyt  219221  219219  0 13:30 pts/42   00:00:00         -bash
+tiffanyt  224626  219221  0 14:01 pts/42   00:00:00           emacs
+root      222247    1185  0 13:52 ?        00:00:00     sshd: couvrett [priv]
+couvrett  222250  222247  0 13:53 ?        00:00:00       sshd: couvrett@pts/9
+couvrett  222252  222250  0 13:53 pts/9    00:00:00         -bash
+root      225579    1185  0 14:06 ?        00:00:00     sshd: classwka [priv]
+classwka  225582  225579  0 14:06 ?        00:00:00       sshd: classwka@pts/28
+classwka  225584  225582  0 14:06 pts/28   00:00:00         -bash
+root      225656    1185  0 14:07 ?        00:00:00     sshd: classkrt [priv]
+classkrt  225675  225656  0 14:07 ?        00:00:00       sshd: classkrt@pts/31
+classkrt  225683  225675  0 14:07 pts/31   00:00:00         -bash
+root      225918    1185  0 14:07 ?        00:00:00     sshd: ngoc [priv]
+ngoc      225958  225918  0 14:07 ?        00:00:00       sshd: ngoc@pts/45
+ngoc      225962  225958  0 14:07 pts/45   00:00:00         -bash
+ngoc      256348  225962  0 15:56 pts/45   00:00:00           man ps
+ngoc      256362  256348  0 15:56 pts/45   00:00:00             less
+root      226079    1185  0 14:07 ?        00:00:00     sshd: yebin [priv]
+yebin     226096  226079  0 14:07 ?        00:00:00       sshd: yebin@pts/48
+yebin     226100  226096  0 14:07 pts/48   00:00:00         -bash
+yebin     248600  226100  0 15:24 pts/48   00:00:00           less
+yebin     249937  226100  0 15:26 pts/48   00:00:00           less
+root      226413    1185  0 14:08 ?        00:00:00     sshd: raine [priv]
+raine     226416  226413  0 14:08 ?        00:00:00       sshd: raine@pts/7
+raine     226418  226416  0 14:08 pts/7    00:00:00         -bash
+root      226849    1185  0 14:09 ?        00:00:00     sshd: nelson [priv]
+nelson    226866  226849  0 14:09 ?        00:00:00       sshd: nelson@pts/30
+nelson    226870  226866  0 14:09 pts/30   00:00:00         -bash
+nelson    227933  226870  0 14:15 pts/30   00:00:00           emacs
+nelson    244561  226870  0 15:12 pts/30   00:00:01           emacs practice2
+nelson    245495  226870  0 15:16 pts/30   00:00:00           emacs myspel
+nelson    245582  226870  0 15:16 pts/30   00:00:00           emacs myspell
+nelson    246180  226870  0 15:17 pts/30   00:00:00           emacs myspell
+nelson    253083  226870  0 15:43 pts/30   00:00:00           emacs practice3
+nelson    253089  226870  0 15:43 pts/30   00:00:00           emacs practice2
+root      226985    1185  0 14:09 ?        00:00:00     sshd: nileshku [priv]
+nileshku  227002  226985  0 14:09 ?        00:00:00       sshd: nileshku@pts/66
+nileshku  227005  227002  0 14:09 pts/66   00:00:00         -bash
+nileshku  227118  227005  0 14:10 pts/66   00:00:00           emacs -nw
+nileshku  228157  227005  0 14:17 pts/66   00:00:01           emacs -nw
+nileshku  237348  227005  0 14:47 pts/66   00:00:00           grep --color=auto [a-z]
+nileshku  237856  227005  0 14:49 pts/66   00:00:00           emacs -nw
+nileshku  238318  227005  0 14:52 pts/66   00:00:00           man shuf
+nileshku  238330  238318  0 14:52 pts/66   00:00:00             less
+nileshku  238979  227005  0 14:54 pts/66   00:00:00           man which
+nileshku  238991  238979  0 14:54 pts/66   00:00:00             less
+nileshku  246383  227005  0 15:18 pts/66   00:00:00           man ps
+nileshku  246397  246383  0 15:18 pts/66   00:00:00             less
+root      227270    1185  0 14:11 ?        00:00:00     sshd: dane [priv]
+dane      227300  227270  0 14:11 ?        00:00:00       sshd: dane@pts/51
+dane      227303  227300  0 14:11 pts/51   00:00:00         -bash
+dane      227953  227303  0 14:16 pts/51   00:00:00           emacs
+root      227414    1185  0 14:11 ?        00:00:00     sshd: classzli [priv]
+classzli  227418  227414  0 14:11 ?        00:00:00       sshd: classzli@pts/67
+classzli  227420  227418  0 14:11 pts/67   00:00:00         -bash
+classzli  227490  227420  0 14:11 pts/67   00:00:00           emacs assign1.html
+root      228017    1185  0 14:16 ?        00:00:00     sshd: jadon [priv]
+jadon     228023  228017  0 14:16 ?        00:00:00       sshd: jadon@pts/23
+jadon     228031  228023  0 14:16 pts/23   00:00:00         -bash
+jadon     239630  228031  0 14:55 pts/23   00:00:00           emacs
+jadon     240607  228031  0 14:59 pts/23   00:00:00           emacs
+jadon     241556  228031  0 15:04 pts/23   00:00:00           emacs
+jadon     243439  228031  0 15:08 pts/23   00:00:02           emacs
+jadon     246330  228031  0 15:18 pts/23   00:00:00           man ps
+jadon     246344  246330  0 15:18 pts/23   00:00:00             less
+jadon     248161  228031  0 15:23 pts/23   00:00:00           man ps
+jadon     248177  248161  0 15:23 pts/23   00:00:00             less
+root      233712    1185  0 14:33 ?        00:00:00     sshd: classpha [priv]
+classpha  233741  233712  0 14:33 ?        00:00:00       sshd: classpha@pts/26
+classpha  233744  233741  0 14:33 pts/26   00:00:00         -bash
+classpha  243441  233744  0 15:08 pts/26   00:00:04           emacs
+classpha  243464  243441  0 15:08 pts/54   00:00:00             /bin/bash --noediting -i
+root      234375    1185  0 14:36 ?        00:00:00     sshd: classiwu [priv]
+classiwu  234392  234375  0 14:36 ?        00:00:00       sshd: classiwu@pts/29
+classiwu  234396  234392  0 14:36 pts/29   00:00:00         -bash
+root      236207    1185  0 14:43 ?        00:00:00     sshd: dianae [priv]
+dianae    236231  236207  0 14:43 ?        00:00:00       sshd: dianae@pts/13
+dianae    236233  236231  0 14:43 pts/13   00:00:00         -bash
+root      238106    1185  0 14:51 ?        00:00:00     sshd: simon [priv]
+simon     238123  238106  0 14:51 ?        00:00:00       sshd: simon@pts/8
+simon     238127  238123  0 14:51 pts/8    00:00:00         -bash
+root      238282    1185  0 14:51 ?        00:00:00     sshd: seoungmi [priv]
+seoungmi  238592  238282  0 14:53 ?        00:00:01       sshd: seoungmi@notty
+seoungmi  238594  238592  0 14:53 ?        00:00:00         bash
+seoungmi  263749  238594  0 16:35 ?        00:00:00           sleep 180
+root      239039    1185  0 14:54 ?        00:00:00     sshd: seoungmi [priv]
+seoungmi  239042  239039  0 14:54 ?        00:00:00       sshd: seoungmi@pts/17
+seoungmi  239044  239042  0 14:54 pts/17   00:00:00         -bash
+root      239732    1185  0 14:56 ?        00:00:00     sshd: kyley [priv]
+kyley     239765  239732  0 14:56 ?        00:00:00       sshd: kyley@pts/21
+kyley     239770  239765  0 14:56 pts/21   00:00:00         -bash
+root      240099    1185  0 14:56 ?        00:00:00     sshd: kyley [priv]
+kyley     240122  240099  0 14:56 ?        00:00:00       sshd: kyley@pts/44
+kyley     240124  240122  0 14:56 pts/44   00:00:00         -bash
+root      240260    1185  0 14:56 ?        00:00:00     sshd: sujay [priv]
+sujay     240263  240260  0 14:56 ?        00:00:00       sshd: sujay@notty
+sujay     240265  240263  0 14:56 ?        00:00:00         /usr/libexec/openssh/sftp-server
+root      240796    1185  0 15:00 ?        00:00:00     sshd: kyley [priv]
+kyley     240800  240796  0 15:00 ?        00:00:00       sshd: kyley@pts/68
+kyley     240802  240800  0 15:00 pts/68   00:00:00         -bash
+root      241771    1185  0 15:04 ?        00:00:00     sshd: bresnaha [priv]
+bresnaha  241808  241771  0 15:04 ?        00:00:00       sshd: bresnaha@pts/12
+bresnaha  241810  241808  0 15:04 pts/12   00:00:00         -bash
+bresnaha  250503  241810  0 15:30 pts/12   00:00:00           emacs myspell
+root      242858    1185  0 15:06 ?        00:00:00     sshd: classmte [priv]
+classmte  242876  242858  0 15:06 ?        00:00:00       sshd: classmte@pts/84
+classmte  242880  242876  0 15:06 pts/84   00:00:00         -bash
+root      244358    1185  0 15:12 ?        00:00:00     sshd: emanuel [priv]
+emanuel   244408  244358  0 15:12 ?        00:00:00       sshd: emanuel@pts/16
+emanuel   244411  244408  0 15:12 pts/16   00:00:00         -bash
+root      247559    1185  0 15:21 ?        00:00:00     sshd: balakris [priv]
+balakris  247562  247559  0 15:21 ?        00:00:00       sshd: balakris@notty
+balakris  247564  247562  0 15:21 ?        00:00:00         /usr/libexec/openssh/sftp-server
+root      247683    1185  0 15:21 ?        00:00:00     sshd: classzli [priv]
+classzli  247696  247683  0 15:21 ?        00:00:00       sshd: classzli@pts/22
+classzli  247698  247696  0 15:21 pts/22   00:00:00         -bash
+classzli  247903  247698  0 15:22 pts/22   00:00:00           emacs
+root      249695    1185  0 15:26 ?        00:00:00     sshd: classzli [priv]
+classzli  249699  249695  0 15:26 ?        00:00:00       sshd: classzli@pts/2
+classzli  249701  249699  0 15:26 pts/2    00:00:00         -bash
+root      249803    1185  0 15:26 ?        00:00:00     sshd: yihanw [priv]
+yihanw    249823  249803  0 15:26 ?        00:00:00       sshd: yihanw@pts/36
+yihanw    249826  249823  0 15:26 pts/36   00:00:00         -bash
+yihanw    260106  249826  0 16:16 pts/36   00:00:00           emacs hello.c
+root      250408    1185  0 15:29 ?        00:00:00     sshd: classgyu [priv]
+classgyu  250417  250408  0 15:29 ?        00:00:00       sshd: classgyu@pts/85
+classgyu  250419  250417  0 15:29 pts/85   00:00:00         -bash
+classgyu  253265  250419  0 15:44 pts/85   00:00:00           emacs
+root      252017    1185  0 15:38 ?        00:00:00     sshd: kyley [priv]
+kyley     252020  252017  0 15:38 ?        00:00:00       sshd: kyley@pts/76
+kyley     252022  252020  0 15:38 pts/76   00:00:00         -bash
+kyley     261646  252022  0 16:22 pts/76   00:00:00           emacs
+kyley     263750  252022  0 16:35 pts/76   00:00:00           ps -efH
+root      252240    1185  0 15:40 ?        00:00:00     sshd: abishan [priv]
+abishan   252260  252240  0 15:40 ?        00:00:00       sshd: abishan@pts/87
+abishan   252263  252260  0 15:40 pts/87   00:00:00         -bash
+root      253106    1185  0 15:43 ?        00:00:00     sshd: marco [priv]
+marco     253135  253106  0 15:43 ?        00:00:00       sshd: marco@pts/19
+marco     253139  253135  0 15:43 pts/19   00:00:00         -bash
+root      253545    1185  0 15:45 ?        00:00:00     sshd: lakshman [priv]
+lakshman  253636  253545  0 15:45 ?        00:00:00       sshd: lakshman@pts/4
+lakshman  253646  253636  0 15:45 pts/4    00:00:00         -bash
+root      253931    1185  0 15:45 ?        00:00:00     sshd: classgyu [priv]
+classgyu  253941  253931  0 15:45 ?        00:00:00       sshd: classgyu@pts/24
+classgyu  253943  253941  0 15:45 pts/24   00:00:00         -bash
+root      254601    1185  0 15:49 ?        00:00:00     sshd: classyuq [priv]
+classyuq  254605  254601  0 15:49 ?        00:00:00       sshd: classyuq@notty
+classyuq  254607  254605  0 15:49 ?        00:00:00         bash
+classyuq  263744  254607  0 16:34 ?        00:00:00           sleep 180
+root      254976    1185  0 15:50 ?        00:00:00     sshd: classyuq [priv]
+classyuq  254979  254976  0 15:50 ?        00:00:00       sshd: classyuq@pts/14
+classyuq  254981  254979  0 15:50 pts/14   00:00:00         -bash
+root      255526    1185  0 15:53 ?        00:00:00     sshd: talhakhi [priv]
+talhakhi  255544  255526  0 15:53 ?        00:00:02       sshd: talhakhi@pts/27
+talhakhi  255547  255544  0 15:53 pts/27   00:00:00         -bash
+talhakhi  263714  255547  0 16:33 pts/27   00:00:00           vim myspell
+root      256194    1185  0 15:55 ?        00:00:00     sshd: dianae [priv]
+dianae    256257  256194  0 15:55 ?        00:00:00       sshd: dianae@pts/15
+dianae    256262  256257  0 15:55 pts/15   00:00:00         -bash
+dianae    260238  256262  0 16:17 pts/15   00:00:01           emacs exer2.html
+root      256661    1185  0 15:59 ?        00:00:00     sshd: ronaldp [priv]
+ronaldp   256687  256661  0 15:59 ?        00:00:00       sshd: ronaldp@pts/32
+ronaldp   256689  256687  0 15:59 pts/32   00:00:00         -bash
+root      259202    1185  0 16:07 ?        00:00:00     sshd: simon [priv]
+simon     259207  259202  0 16:07 ?        00:00:00       sshd: simon@pts/72
+simon     259209  259207  0 16:07 pts/72   00:00:00         -bash
+root      261430    1185  0 16:21 ?        00:00:00     sshd: balakris [priv]
+balakris  261437  261430  0 16:21 ?        00:00:00       sshd: balakris@notty
+balakris  261439  261437  0 16:21 ?        00:00:00         /usr/libexec/openssh/sftp-server
+root      261928    1185  0 16:24 ?        00:00:00     sshd: feras [priv]
+feras     261943  261928  0 16:24 ?        00:00:00       sshd: feras@pts/33
+feras     261949  261943  0 16:24 pts/33   00:00:00         -bash
+root      262058    1185  0 16:24 ?        00:00:00     sshd: classxin [priv]
+classxin  262073  262058  0 16:24 ?        00:00:00       sshd: classxin@pts/43
+classxin  262076  262073  0 16:24 pts/43   00:00:00         -bash
+root      262717    1185  0 16:26 ?        00:00:00     sshd: classzli [priv]
+classzli  262722  262717  0 16:26 ?        00:00:00       sshd: classzli@pts/49
+classzli  262724  262722  0 16:26 pts/49   00:00:00         -bash
+classzli  263716  262724  0 16:34 pts/49   00:00:00           man ps
+classzli  263730  263716  0 16:34 pts/49   00:00:00             less
+root      262882    1185  0 16:27 ?        00:00:00     sshd: dongmin [priv]
+dongmin   262909  262882  0 16:27 ?        00:00:00       sshd: dongmin@pts/50
+dongmin   262913  262909  0 16:27 pts/50   00:00:00         -bash
+dongmin   263056  262913  0 16:27 pts/50   00:00:01           emacs
+root      263086    1185  0 16:28 ?        00:00:00     sshd: naketris [priv]
+naketris  263208  263086  0 16:29 ?        00:00:00       sshd: naketris@pts/0
+naketris  263215  263208  0 16:29 pts/0    00:00:00         -bash
+root      263574    1185  0 16:32 ?        00:00:00     sshd: classcle [priv]
+classcle  263592  263574  0 16:32 ?        00:00:00       sshd: classcle@pts/3
+classcle  263596  263592  0 16:32 pts/3    00:00:00         -bash
+classcle  263680  263596  0 16:32 pts/3    00:00:00           emacs
+classcle  263707  263680  0 16:32 pts/38   00:00:00             /bin/bash --noediting -i
+root        1187       1  0  2022 ?        00:00:03   /usr/sbin/hypervkvpd -n
+nrpe        1190       1  0  2022 ?        00:00:42   /usr/sbin/nrpe -c /etc/nagios/nrpe.cfg -f
+root        1192       1  0  2022 ?        00:38:11   /usr/libexec/platform-python -Es /usr/sbin/tuned -l -P
+root        1193       1  0  2022 ?        00:00:00   /usr/sbin/rpc.ypxfrd -f -p 889
+root        1198       1  0  2022 ?        00:00:01   /usr/bin/rhsmcertd
+root        1215       1  0  2022 ?        00:00:00   /usr/sbin/gssproxy -D
+root        1220       1  0  2022 ?        00:00:21   /usr/sbin/ypbind -n
+root        1239       1  0  2022 ?        00:07:35   /usr/lib/systemd/systemd-logind
+root        1675       1  0  2022 ?        00:06:59   sendmail: accepting connections
+smmsp       1735       1  0  2022 ?        00:00:03   sendmail: Queue runner@01:00:00 for /var/spool/clientmqueue
+rpcuser     1757       1  0  2022 ?        00:00:00   /usr/sbin/rpc.statd
+root        1945       1  0  2022 ?        00:00:00   /usr/sbin/atd -f
+root        1947       1  0  2022 ?        00:00:22   /usr/sbin/crond -n
+root        1952       1  0  2022 tty1     00:00:00   /sbin/agetty -o -p -- \u --noclear tty1 linux
+rtkit      18658       1  0  2022 ?        00:03:11   /usr/libexec/rtkit-daemon
+root     3798058       1  0  2022 ?        00:12:08   /usr/sbin/rsyslogd -n
+root     3799271       1  0  2022 ?        00:05:25   /usr/lib/systemd/systemd-journald
+root     2872979       1  0  2022 ?        00:00:13   /usr/sbin/certmonger -S -p /run/certmonger.pid -n
+root     2282728       1  0  2022 ?        00:02:10   /usr/libexec/udisks2/udisksd
+andersot 4183954       1  0 Jan19 ?        00:00:02   /usr/lib/systemd/systemd --user
+andersot 4183956 4183954  0 Jan19 ?        00:00:00     (sd-pam)
+andersot 4183962 4183954  0 Jan19 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+andersot 4184086 4183954  0 Jan19 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+classyuq   66058       1  0 09:20 ?        00:00:01   /usr/lib/systemd/systemd --user
+classyuq   66062   66058  0 09:20 ?        00:00:00     (sd-pam)
+classyuq   66166   66058  0 09:20 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+classyuq   66202       1  0 09:21 ?        00:00:00   sh /u/eng/class/classyuq/.vscode-server/bin/97dec172d3256f8ca4bfb2143f3f7
+classyuq   66214   66202  0 09:21 ?        00:00:19     /w/home.05/class/classyuq/.vscode-server/bin/97dec172d3256f8ca4bfb2143f
+classyuq   66582   66214  0 09:21 ?        00:00:01       /w/home.05/class/classyuq/.vscode-server/bin/97dec172d3256f8ca4bfb214
+classyuq   66729   66214  0 09:21 ?        00:00:01       /w/home.05/class/classyuq/.vscode-server/bin/97dec172d3256f8ca4bfb214
+classyuq  156367   66214  0 11:25 ?        00:00:00       /w/home.05/class/classyuq/.vscode-server/bin/97dec172d3256f8ca4bfb214
+classyuq  220004   66214  0 13:38 ?        00:00:00       /w/home.05/class/classyuq/.vscode-server/bin/97dec172d3256f8ca4bfb214
+classyuq  254664   66214  0 15:49 ?        00:00:05       /w/home.05/class/classyuq/.vscode-server/bin/97dec172d3256f8ca4bfb214
+classyuq  254717  254664  0 15:49 ?        00:00:06         /u/eng/class/classyuq/.vscode-server/extensions/ms-vscode.cpptools-
+classyuq  254675   66214  0 15:49 ?        00:00:00       /w/home.05/class/classyuq/.vscode-server/bin/97dec172d3256f8ca4bfb214
+classlhu   66806       1  0 09:22 ?        00:00:01   /usr/lib/systemd/systemd --user
+classlhu   66809   66806  0 09:22 ?        00:00:00     (sd-pam)
+classlhu   66815   66806  0 09:22 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+classlhu   66926   66806  0 09:22 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+classpab   69395       1  0 09:56 ?        00:00:01   /usr/lib/systemd/systemd --user
+classpab   69399   69395  0 09:56 ?        00:00:00     (sd-pam)
+classpab   69682   69395  0 09:56 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+classpab   69513       1  0 09:56 ?        00:00:00   sh /u/eng/class/classpab/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566e
+classpab   69526   69513  0 09:56 ?        00:00:51     /w/home.09/class/classpab/.vscode-server/bin/c3511e6c69bb39013c4a4b7b95
+classpab   69617   69526  0 09:56 ?        00:00:51       /w/home.09/class/classpab/.vscode-server/bin/c3511e6c69bb39013c4a4b7b
+classpab   79412   69617  0 10:35 pts/11   00:00:00         /usr/local/cs/bin/bash
+classpab  137942   79412  0 10:56 pts/11   00:00:00           bash
+classwka   70056       1  0 09:58 ?        00:00:01   /usr/lib/systemd/systemd --user
+classwka   70063   70056  0 09:58 ?        00:00:00     (sd-pam)
+classwka   70069   70056  0 09:58 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+classwka   70197   70056  0 09:58 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+couvrett   71445       1  0 10:06 ?        00:00:01   /usr/lib/systemd/systemd --user
+couvrett   71448   71445  0 10:06 ?        00:00:00     (sd-pam)
+couvrett   71454   71445  0 10:06 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+couvrett   71566   71445  0 10:06 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+seoungmi   76965       1  0 10:26 ?        00:00:01   /usr/lib/systemd/systemd --user
+seoungmi   76967   76965  0 10:26 ?        00:00:00     (sd-pam)
+seoungmi   76973   76965  0 10:26 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+seoungmi   77204   76965  0 10:26 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+seoungmi   77030       1  0 10:26 ?        00:00:00   sh /u/ee/ugrad/seoungmi/.vscode-server/bin/5235c6bb189b60b01b1f49062f4ffa
+seoungmi   77041   77030  0 10:26 ?        00:00:41     /w/home.19/ee/ugrad/seoungmi/.vscode-server/bin/5235c6bb189b60b01b1f490
+seoungmi   77125   77041  0 10:26 ?        00:00:12       /w/home.19/ee/ugrad/seoungmi/.vscode-server/bin/5235c6bb189b60b01b1f4
+seoungmi   77416   77125  0 10:27 pts/34   00:00:00         /usr/local/cs/bin/bash --init-file /w/home.19/ee/ugrad/seoungmi/.vs
+seoungmi   77460   77416  0 10:27 pts/34   00:00:00           ssh seoungmi@lnxsrv15.seas.ucla.edu
+seoungmi  161268   77125  0 12:16 pts/20   00:00:00         /usr/local/cs/bin/bash --init-file /w/home.19/ee/ugrad/seoungmi/.vs
+seoungmi   77271   77041  0 10:26 ?        00:00:09       /w/home.19/ee/ugrad/seoungmi/.vscode-server/bin/5235c6bb189b60b01b1f4
+seoungmi  158032   77041  3 11:45 ?        00:08:59       /w/home.19/ee/ugrad/seoungmi/.vscode-server/bin/5235c6bb189b60b01b1f4
+seoungmi  158043   77041  0 11:45 ?        00:00:07       /w/home.19/ee/ugrad/seoungmi/.vscode-server/bin/5235c6bb189b60b01b1f4
+classzli   78114       1  0 10:30 ?        00:00:01   /usr/lib/systemd/systemd --user
+classzli   78142   78114  0 10:30 ?        00:00:00     (sd-pam)
+classzli   78173   78114  0 10:30 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+classzli   78297   78114  0 10:30 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+jadon     138147       1  0 10:59 ?        00:00:00   /usr/lib/systemd/systemd --user
+jadon     138149  138147  0 10:59 ?        00:00:00     (sd-pam)
+jadon     138155  138147  0 10:59 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+jadon     138267  138147  0 10:59 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+zhixuan   138481       1  0 11:01 ?        00:00:00   /usr/lib/systemd/systemd --user
+zhixuan   138486  138481  0 11:01 ?        00:00:00     (sd-pam)
+zhixuan   138793  138481  0 11:01 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+zhixuan   138658       1  0 11:01 ?        00:00:00   sh /u/cs/ugrad/zhixuan/.vscode-server/bin/97dec172d3256f8ca4bfb2143f3f76b
+zhixuan   138670  138658  0 11:01 ?        00:00:16     /w/home.02/cs/ugrad/zhixuan/.vscode-server/bin/97dec172d3256f8ca4bfb214
+zhixuan   138731  138670  0 11:01 ?        00:00:12       /w/home.02/cs/ugrad/zhixuan/.vscode-server/bin/97dec172d3256f8ca4bfb2
+zhixuan   139054  138731  0 11:02 pts/41   00:00:00         /usr/local/cs/bin/bash --init-file /w/home.02/cs/ugrad/zhixuan/.vsc
+zhixuan   138983  138670  0 11:02 ?        00:00:00       /w/home.02/cs/ugrad/zhixuan/.vscode-server/bin/97dec172d3256f8ca4bfb2
+zhixuan   160837  138670  0 12:10 ?        00:00:18       /w/home.02/cs/ugrad/zhixuan/.vscode-server/bin/97dec172d3256f8ca4bfb2
+zhixuan   160848  138670  0 12:10 ?        00:00:00       /w/home.02/cs/ugrad/zhixuan/.vscode-server/bin/97dec172d3256f8ca4bfb2
+balakris  154205       1  0 11:13 ?        00:00:00   /usr/lib/systemd/systemd --user
+balakris  154207  154205  0 11:13 ?        00:00:00     (sd-pam)
+balakris  154213  154205  0 11:13 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+balakris  154287  154205  0 11:13 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+sujay     157258       1  0 11:34 ?        00:00:00   /usr/lib/systemd/systemd --user
+sujay     157265  157258  0 11:34 ?        00:00:00     (sd-pam)
+sujay     157271  157258  0 11:34 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+sujay     157382  157258  0 11:34 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+luuk      162700       1  0 12:22 ?        00:00:00   /usr/lib/systemd/systemd --user
+luuk      162703  162700  0 12:22 ?        00:00:00     (sd-pam)
+luuk      162709  162700  0 12:22 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+luuk      162820  162700  0 12:22 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+sumith    163039       1  0 12:25 ?        00:00:00   /usr/lib/systemd/systemd --user
+sumith    163064  163039  0 12:25 ?        00:00:00     (sd-pam)
+sumith    163526  163039  0 12:25 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+sumith    163354       1  0 12:25 ?        00:00:00   sh /u/cs/ugrad/sumith/.vscode-server/bin/97dec172d3256f8ca4bfb2143f3f76b5
+sumith    163366  163354  0 12:25 ?        00:00:08     /w/home.07/cs/ugrad/sumith/.vscode-server/bin/97dec172d3256f8ca4bfb2143
+sumith    163443  163366  0 12:25 ?        00:00:07       /w/home.07/cs/ugrad/sumith/.vscode-server/bin/97dec172d3256f8ca4bfb21
+sumith    164065  163443  0 12:25 pts/61   00:00:00         /usr/local/cs/bin/bash --init-file /w/home.07/cs/ugrad/sumith/.vsco
+sumith    163997  163366  0 12:25 ?        00:00:14       /w/home.07/cs/ugrad/sumith/.vscode-server/bin/97dec172d3256f8ca4bfb21
+sumith    164008  163366  0 12:25 ?        00:00:00       /w/home.07/cs/ugrad/sumith/.vscode-server/bin/97dec172d3256f8ca4bfb21
+classler  163536       1  0 12:25 ?        00:00:00   /usr/lib/systemd/systemd --user
+classler  163538  163536  0 12:25 ?        00:00:00     (sd-pam)
+classler  163810  163536  0 12:25 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+classler  163648       1  0 12:25 ?        00:00:00   sh /u/eng/class/classler/.vscode-server/bin/74b1f979648cc44d385a2286793c2
+classler  163661  163648  0 12:25 ?        00:00:21     /w/home.05/class/classler/.vscode-server/bin/74b1f979648cc44d385a228679
+classler  163759  163661  0 12:25 ?        00:00:17       /w/home.05/class/classler/.vscode-server/bin/74b1f979648cc44d385a2286
+classler  235030  163759  0 14:37 pts/55   00:00:00         /usr/local/cs/bin/bash --init-file /w/home.05/class/classler/.vscod
+classler  234970  163661  0 14:37 ?        00:00:09       /w/home.05/class/classler/.vscode-server/bin/74b1f979648cc44d385a2286
+classler  234981  163661  0 14:37 ?        00:00:02       /w/home.05/class/classler/.vscode-server/bin/74b1f979648cc44d385a2286
+tiffanyt  164171       1  0 12:26 ?        00:00:00   /usr/lib/systemd/systemd --user
+tiffanyt  164173  164171  0 12:26 ?        00:00:00     (sd-pam)
+tiffanyt  164179  164171  0 12:26 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+tiffanyt  164290  164171  0 12:26 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+classgyu  209911       1  0 12:58 ?        00:00:00   /usr/lib/systemd/systemd --user
+classgyu  209913  209911  0 12:58 ?        00:00:00     (sd-pam)
+classgyu  209919  209911  0 12:58 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+classgyu  210030  209911  0 12:58 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+classenv  210714       1  0 13:04 ?        00:00:00   /usr/lib/systemd/systemd --user
+classenv  210716  210714  0 13:04 ?        00:00:00     (sd-pam)
+classenv  210723  210714  0 13:04 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+classenv  210869  210714  0 13:04 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+raine     219038       1  0 13:30 ?        00:00:00   /usr/lib/systemd/systemd --user
+raine     219040  219038  0 13:30 ?        00:00:00     (sd-pam)
+raine     219046  219038  0 13:30 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+raine     219167  219038  0 13:30 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+raine     222634       1  0 13:54 ?        00:00:00   sh /u/cs/ugrad/raine/.vscode-server/bin/97dec172d3256f8ca4bfb2143f3f76b50
+raine     222646  222634  0 13:54 ?        00:00:12     /w/home.22/cs/ugrad/raine/.vscode-server/bin/97dec172d3256f8ca4bfb2143f
+raine     222714  222646  0 13:54 ?        00:00:00       /w/home.22/cs/ugrad/raine/.vscode-server/bin/97dec172d3256f8ca4bfb214
+raine     222770  222646  0 13:54 ?        00:00:16       /w/home.22/cs/ugrad/raine/.vscode-server/bin/97dec172d3256f8ca4bfb214
+raine     222788  222646  0 13:54 ?        00:00:03       /w/home.22/cs/ugrad/raine/.vscode-server/bin/97dec172d3256f8ca4bfb214
+dianae    223024       1  0 13:54 ?        00:00:00   /usr/lib/systemd/systemd --user
+dianae    223026  223024  0 13:54 ?        00:00:00     (sd-pam)
+dianae    223032  223024  0 13:54 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+dianae    223146  223024  0 13:54 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+classkrt  225661       1  0 14:07 ?        00:00:00   /usr/lib/systemd/systemd --user
+classkrt  225668  225661  0 14:07 ?        00:00:00     (sd-pam)
+classkrt  225674  225661  0 14:07 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+classkrt  225788  225661  0 14:07 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+ngoc      225949       1  0 14:07 ?        00:00:00   /usr/lib/systemd/systemd --user
+ngoc      225951  225949  0 14:07 ?        00:00:00     (sd-pam)
+ngoc      225957  225949  0 14:07 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+ngoc      226076  225949  0 14:07 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+yebin     226087       1  0 14:07 ?        00:00:00   /usr/lib/systemd/systemd --user
+yebin     226089  226087  0 14:07 ?        00:00:00     (sd-pam)
+yebin     226095  226087  0 14:07 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+yebin     226207  226087  0 14:07 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+nelson    226855       1  0 14:09 ?        00:00:00   /usr/lib/systemd/systemd --user
+nelson    226859  226855  0 14:09 ?        00:00:00     (sd-pam)
+nelson    226865  226855  0 14:09 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+nelson    226982  226855  0 14:09 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+nileshku  226992       1  0 14:09 ?        00:00:00   /usr/lib/systemd/systemd --user
+nileshku  226995  226992  0 14:09 ?        00:00:00     (sd-pam)
+nileshku  227001  226992  0 14:09 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+nileshku  227112  226992  0 14:09 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+dane      227291       1  0 14:11 ?        00:00:00   /usr/lib/systemd/systemd --user
+dane      227293  227291  0 14:11 ?        00:00:00     (sd-pam)
+dane      227299  227291  0 14:11 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+dane      227412  227291  0 14:11 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+sakkunth  228756       1  0 14:20 ?        00:00:00   /usr/lib/systemd/systemd --user
+sakkunth  228759  228756  0 14:20 ?        00:00:00     (sd-pam)
+sakkunth  228867  228756  0 14:20 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+sakkunth  228920       1  0 14:20 ?        00:00:00   sh /u/ee/ugrad/sakkunth/.vscode-server/bin/d045a5eda657f4d7b676dedbfa7aab
+sakkunth  228932  228920  0 14:20 ?        00:00:05     /w/home.19/ee/ugrad/sakkunth/.vscode-server/bin/d045a5eda657f4d7b676ded
+sakkunth  229158  228932  0 14:20 ?        00:00:05       /w/home.19/ee/ugrad/sakkunth/.vscode-server/bin/d045a5eda657f4d7b676d
+sakkunth  229803  229158  0 14:23 pts/82   00:00:00         /usr/local/cs/bin/bash --init-file /w/home.19/ee/ugrad/sakkunth/.vs
+sakkunth  229744  228932  0 14:22 ?        00:00:07       /w/home.19/ee/ugrad/sakkunth/.vscode-server/bin/d045a5eda657f4d7b676d
+sakkunth  229755  228932  0 14:22 ?        00:00:01       /w/home.19/ee/ugrad/sakkunth/.vscode-server/bin/d045a5eda657f4d7b676d
+classpha  233731       1  0 14:33 ?        00:00:00   /usr/lib/systemd/systemd --user
+classpha  233734  233731  0 14:33 ?        00:00:00     (sd-pam)
+classpha  233740  233731  0 14:33 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+classpha  233851  233731  0 14:33 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+classiwu  234383       1  0 14:36 ?        00:00:00   /usr/lib/systemd/systemd --user
+classiwu  234385  234383  0 14:36 ?        00:00:00     (sd-pam)
+classiwu  234391  234383  0 14:36 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+classiwu  234504  234383  0 14:36 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+byung     236773       1  0 14:46 ?        00:00:00   /usr/lib/systemd/systemd --user
+byung     236776  236773  0 14:46 ?        00:00:00     (sd-pam)
+byung     237055  236773  0 14:46 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+byung     236891       1  0 14:46 ?        00:00:00   sh /u/cs/ugrad/byung/.vscode-server/bin/97dec172d3256f8ca4bfb2143f3f76b50
+byung     236904  236891  0 14:46 ?        00:00:03     /w/home.18/cs/ugrad/byung/.vscode-server/bin/97dec172d3256f8ca4bfb2143f
+byung     236980  236904  0 14:46 ?        00:00:00       /w/home.18/cs/ugrad/byung/.vscode-server/bin/97dec172d3256f8ca4bfb214
+byung     237086  236904  0 14:46 ?        00:00:01       /w/home.18/cs/ugrad/byung/.vscode-server/bin/97dec172d3256f8ca4bfb214
+simon     238114       1  0 14:51 ?        00:00:00   /usr/lib/systemd/systemd --user
+simon     238116  238114  0 14:51 ?        00:00:00     (sd-pam)
+simon     238122  238114  0 14:51 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+simon     238234  238114  0 14:51 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+kyley     239755       1  0 14:56 ?        00:00:00   /usr/lib/systemd/systemd --user
+kyley     239758  239755  0 14:56 ?        00:00:00     (sd-pam)
+kyley     239764  239755  0 14:56 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+kyley     239886  239755  0 14:56 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+bresnaha  241784       1  0 15:04 ?        00:00:00   /usr/lib/systemd/systemd --user
+bresnaha  241793  241784  0 15:04 ?        00:00:00     (sd-pam)
+bresnaha  241807  241784  0 15:04 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+bresnaha  241940  241784  0 15:04 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+classgyu  242030       1  0 15:04 ?        00:00:00   sh /u/eng/class/classgyu/.vscode-server/bin/97dec172d3256f8ca4bfb2143f3f7
+classgyu  242042  242030  0 15:04 ?        00:00:05     /w/home.20/class/classgyu/.vscode-server/bin/97dec172d3256f8ca4bfb2143f
+classgyu  242091  242042  0 15:04 ?        00:00:02       /w/home.20/class/classgyu/.vscode-server/bin/97dec172d3256f8ca4bfb214
+classgyu  242229  242091  0 15:04 pts/79   00:00:00         /usr/local/cs/bin/bash --init-file /w/home.20/class/classgyu/.vscod
+classgyu  242146  242042  0 15:04 ?        00:00:07       /w/home.20/class/classgyu/.vscode-server/bin/97dec172d3256f8ca4bfb214
+classgyu  255347  242146  0 15:51 ?        00:00:00         /w/home.20/class/classgyu/.vscode-server/bin/97dec172d3256f8ca4bfb2
+classgyu  242157  242042  0 15:04 ?        00:00:02       /w/home.20/class/classgyu/.vscode-server/bin/97dec172d3256f8ca4bfb214
+classmte  242867       1  0 15:06 ?        00:00:00   /usr/lib/systemd/systemd --user
+classmte  242869  242867  0 15:06 ?        00:00:00     (sd-pam)
+classmte  242875  242867  0 15:06 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+classmte  242996  242867  0 15:06 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+emanuel   244399       1  0 15:12 ?        00:00:00   /usr/lib/systemd/systemd --user
+emanuel   244401  244399  0 15:12 ?        00:00:00     (sd-pam)
+emanuel   244407  244399  0 15:12 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+emanuel   244520  244399  0 15:12 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+yihanw    249813       1  0 15:26 ?        00:00:00   /usr/lib/systemd/systemd --user
+yihanw    249815  249813  0 15:26 ?        00:00:00     (sd-pam)
+yihanw    249821  249813  0 15:26 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+yihanw    249934  249813  0 15:26 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+abishan   252250       1  0 15:40 ?        00:00:00   /usr/lib/systemd/systemd --user
+abishan   252253  252250  0 15:40 ?        00:00:00     (sd-pam)
+abishan   252259  252250  0 15:40 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+abishan   252387  252250  0 15:40 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+marco     253126       1  0 15:43 ?        00:00:00   /usr/lib/systemd/systemd --user
+marco     253128  253126  0 15:43 ?        00:00:00     (sd-pam)
+marco     253134  253126  0 15:43 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+marco     253246  253126  0 15:43 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+lakshman  253625       1  0 15:45 ?        00:00:00   /usr/lib/systemd/systemd --user
+lakshman  253627  253625  0 15:45 ?        00:00:00     (sd-pam)
+lakshman  253635  253625  0 15:45 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+lakshman  253763  253625  0 15:45 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+classyuq  255314       1  0 15:51 ?        00:00:00   /u/eng/class/classyuq/.vscode-server/extensions/ms-vscode.cpptools-1.13.9
+talhakhi  255531       1  0 15:53 ?        00:00:00   /usr/lib/systemd/systemd --user
+talhakhi  255537  255531  0 15:53 ?        00:00:00     (sd-pam)
+talhakhi  255543  255531  0 15:53 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+talhakhi  255654  255531  0 15:53 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+ronaldp   256678       1  0 15:59 ?        00:00:00   /usr/lib/systemd/systemd --user
+ronaldp   256680  256678  0 15:59 ?        00:00:00     (sd-pam)
+ronaldp   256686  256678  0 15:59 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+ronaldp   256797  256678  0 15:59 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+feras     261934       1  0 16:24 ?        00:00:00   /usr/lib/systemd/systemd --user
+feras     261936  261934  0 16:24 ?        00:00:00     (sd-pam)
+feras     261942  261934  0 16:24 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+feras     262054  261934  0 16:24 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+classxin  262064       1  0 16:24 ?        00:00:00   /usr/lib/systemd/systemd --user
+classxin  262066  262064  0 16:24 ?        00:00:00     (sd-pam)
+classxin  262072  262064  0 16:24 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+classxin  262183  262064  0 16:24 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+dongmin   262900       1  0 16:27 ?        00:00:00   /usr/lib/systemd/systemd --user
+dongmin   262902  262900  0 16:27 ?        00:00:00     (sd-pam)
+dongmin   262908  262900  0 16:27 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+dongmin   263021  262900  0 16:27 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+naketris  263193       1  0 16:29 ?        00:00:00   /usr/lib/systemd/systemd --user
+naketris  263201  263193  0 16:29 ?        00:00:00     (sd-pam)
+naketris  263207  263193  0 16:29 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+naketris  263321  263193  0 16:29 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile
+classcle  263580       1  0 16:32 ?        00:00:00   /usr/lib/systemd/systemd --user
+classcle  263585  263580  0 16:32 ?        00:00:00     (sd-pam)
+classcle  263591  263580  0 16:32 ?        00:00:00     /usr/bin/pulseaudio --daemonize=no --log-target=journal
+classcle  263705  263580  0 16:32 ?        00:00:00     /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile

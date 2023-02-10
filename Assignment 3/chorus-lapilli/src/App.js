@@ -29,24 +29,20 @@ export default function Board() {
       return
     }
 
-    if (xIsNext && xCount == 3) {
-      return
-    }
-    else if (!xIsNext && oCount == 3) {
-      return
-    }
 
     if (xIsNext) {
-      nextSquares[i] = "X"
-      if (xCount < 3) {
-        setXCount(xCount+1)
+      if (xCount == 3) {
+        return
       }
+      nextSquares[i] = "X"
+      setXCount(xCount+1)
     }
     else {
-      nextSquares[i] = "O"
-      if (oCount < 3) {
-        setOCount(oCount+1)
+      if (oCount == 3) {
+        return
       }
+      nextSquares[i] = "O"
+      setOCount(oCount+1)
     }
     setXisNext(!xIsNext)
     setSquares(nextSquares)

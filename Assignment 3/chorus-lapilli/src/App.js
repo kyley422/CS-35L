@@ -8,6 +8,7 @@ function Square({value,onSquareClick}) {
 export default function Board() {
   const [xCount, setXCount] = useState(0)
   const [oCount, setOCount] = useState(0)
+  const [selectedPiece, setSelectedPiece] = useState(null)
   const [xIsNext, setXisNext] = useState(true)
   const [squares, setSquares] = useState(Array(9).fill(null))
 
@@ -21,28 +22,90 @@ export default function Board() {
   }
 
   function handleClick(i) {
-    if (squares[i] || calculateWinner(squares)) {
+    if (calculateWinner(squares)) {
       return
     }
     const nextSquares = squares.slice()
-    if (squares[i]) {
-      return
-    }
-
 
     if (xIsNext) {
       if (xCount == 3) {
-        return
+        if (squares[i] == "O") {return}
+        // Empty square check
+        if (!squares[i]) {
+          if (selectedPiece!=null) {
+            if (squares[selectedPiece] == "X") {
+              let adjacentSquares = findAdjacent(selectedPiece)
+              console.log(adjacentSquares)
+              // Move piece
+              if (adjacentSquares.includes(i)) {
+                nextSquares[i] = "X"
+                nextSquares[selectedPiece] = null
+              }
+              else {
+                return
+              }
+            }
+            else {
+              return
+            }
+          }
+          else {
+            return
+          }
+        }
+        else {
+          console.log("X selected (" + i +")")
+          setSelectedPiece(i)
+          return
+        }
       }
-      nextSquares[i] = "X"
-      setXCount(xCount+1)
+      else {
+        nextSquares[i] = "X"
+        setXCount(xCount+1)
+      }
     }
     else {
       if (oCount == 3) {
-        return
+        if (xCount == 3) {
+          if (squares[i] == "X") {return}
+          // Empty square check
+          if (!squares[i]) {
+            if (selectedPiece!=null) {
+              if (squares[selectedPiece] == "O") {
+                let adjacentSquares = findAdjacent(selectedPiece)
+                console.log(adjacentSquares)
+                // Move piece
+                if (adjacentSquares.includes(i)) {
+                  nextSquares[i] = "O"
+                  nextSquares[selectedPiece] = null
+                }
+                else {
+                  return
+                }
+              }
+              else {
+                return
+              }
+            }
+            else {
+              return
+            }
+          }
+          else {
+            console.log("O selected selected (" + i +")")
+            setSelectedPiece(i)
+            return
+          }
+        }
+        else {
+          nextSquares[i] = "O"
+          setXCount(xCount+1)
+        }
       }
-      nextSquares[i] = "O"
-      setOCount(oCount+1)
+      else {
+        nextSquares[i] = "O"
+        setOCount(oCount+1)
+      }
     }
     setXisNext(!xIsNext)
     setSquares(nextSquares)
@@ -88,4 +151,41 @@ function calculateWinner(squares) {
     }
   }
   return null;
+}
+
+// Returns array of adjacent squares for position
+function findAdjacent(position) {
+  let adjacent
+  switch (position) {
+    case 0:
+      adjacent = [1,3,4]
+      break
+    case 1:
+      adjacent = [0,2,3,4,5]
+      break
+    case 2:
+      adjacent = [1,4,5]
+      break
+    case 3:
+      adjacent = [0,1,4,7,6]
+      break
+    case 4:
+      adjacent = [0,1,2,3,5,6,7,8]
+      break
+    case 5:
+      adjacent = [2,1,4,7,8]
+      break
+    case 6:
+      adjacent = [3,4,7]
+      break
+    case 7:
+      adjacent = [6,3,4,5,8]
+      break
+    case 8:
+      adjacent = [5,4,7]
+      break
+    default:
+      console.log("Something went wrong")
+  }
+  return adjacent
 }

@@ -1,0 +1,18 @@
+Begining with the source code from tic-tac-toe.
+
++ Implemented a 3-piece max for both X and O.
+I did this by adding two states to Board: xCount and oCount. Each time I clicked
+an empty square, this would increment either xCount or oCount until they reached 3 pieces each.
+Then I added an if statement to check for max pieces within the if statement to determine player turn.
+This will allow me to branch the behavior of the game from tic tac toe to chorus lapilli.
+
++ Implemented ability to select a piece.
+To do this I added another state to Board: selectedPiece, which is initially null.
+selectedPiece is then updated to the ith square whenever X clicks on it and it's their turn (same with O).
+This is the first part of moving a piece. The next step would be to allow the player to click an empty square to move there.
+
++ Implemented ability to move a piece.
+I added an if statement within my turn if statement. It checks if there is a selected piece, and the target square is empty.
+If it is, set an X/O there and remove the original X/O using the selectedPiece state. But now the problem is that pieces can
+move anywhere, but they're only supposed to move adjacently.
+

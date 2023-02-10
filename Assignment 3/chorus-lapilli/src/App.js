@@ -6,6 +6,8 @@ function Square({value,onSquareClick}) {
 }
 
 export default function Board() {
+  const [xCount, setXCount] = useState(0)
+  const [oCount, setOCount] = useState(0)
   const [xIsNext, setXisNext] = useState(true)
   const [squares, setSquares] = useState(Array(9).fill(null))
 
@@ -26,11 +28,25 @@ export default function Board() {
     if (squares[i]) {
       return
     }
+
+    if (xIsNext && xCount == 3) {
+      return
+    }
+    else if (!xIsNext && oCount == 3) {
+      return
+    }
+
     if (xIsNext) {
       nextSquares[i] = "X"
+      if (xCount < 3) {
+        setXCount(xCount+1)
+      }
     }
     else {
       nextSquares[i] = "O"
+      if (oCount < 3) {
+        setOCount(oCount+1)
+      }
     }
     setXisNext(!xIsNext)
     setSquares(nextSquares)

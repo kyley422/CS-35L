@@ -1,4 +1,12 @@
-Begining with the source code from tic-tac-toe.
+How to play.
+The first three moves for each player is the same as in tic-tac-toe. When it is your turn, click on a square to place
+your piece there. After 3 moves each, the game moves to chorus lapilli rules.
+
+When it is your turn, click on one of your pieces to select it. After selecting a piece, you can click on another square
+to move your selected piece to that square (assuming the move is legal).
+
+Development.
+Beginning with the source code from tic-tac-toe,
 
 + Implemented a 3-piece max for both X and O.
 I did this by adding two states to Board: xCount and oCount. Each time I clicked
@@ -18,5 +26,14 @@ move anywhere, but they're only supposed to move adjacently.
 
 + Implemented check for adjacency.
 I created a function that would return adjacent squares based on the square that the user clicked on. This was used as 
-the final check for a legal move. Now the player must click on an empty squaere, and that square must be adjacent.
+the final check for a legal move. Now the player must click on an empty square, and that square must be adjacent.
+
++ Implemented center check.
+To implement the final rule, I placed a check after the player makes their move. To check if the center is occupied, I created a state
+called centerIsOccupied, which updates in the click handler. If the center square is occupied, centerIsOccupied will update to 
+the piece in the center, or null if it is empty. I then used this variable in the check, making sure it coincided with the correct player's
+turn. When the center is occupied, the player can either play the center piece or another piece if it is a winning move. The center piece check
+was implemented using the centerIsOccupied state. To implement the winning move check, I called calculateWinner on nextSquares. This is why 
+I placed this check after the player makes their move. If it's not a winning move, the program "undo"s the player's move and doesn't update the board.
+
 

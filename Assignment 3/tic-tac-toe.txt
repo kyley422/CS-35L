@@ -1,0 +1,45 @@
+Development.
+
+Downloaded the zip from the React sandbox and unzipped it to a directory I made called
+tic-tac-toe.
+I cd into my directory and ran npm install to install the dependencies.
+
+I ran npm start, which worked, but gave me a compiler error.
+To fix this, I added an import statement to import React.
+
+I created the board by copying and pasting the square element, and embedding it within a React Fragment.
+The tutorial said to use <>, but this didn't work for me. Instead, I used <React.Fragment>.
+
+I then divided the squares into rows using div's, and gave the squares numbers, which will help me 
+later on.
+
+I then changed Square so that it was its own component, which I could more easily reuse in Board.
+I then added a prop to Square so that it could display different values, and passed in test values from Board.
+
+To make it interactive, I had to create a click handler, which could then be a prop for square.
+The program needed to keep track of data and to rerender the app when the data changed, so I created a state using React's useState.
+
+To test my state out, I set the value of the square to 'X' whenever it was clicked.
+
+However, the board needed some way to determine a winner, and right now the value of each square is stored in the squares themselves.
+So I lifted the state up into the Board instead, which contained an array of squares and their states.
+
+So now I could assign squares' values based on the squares array in board. To lift data up into board, I had to create
+a onClick function for square, which would send the value of square into Board (X, O, or null).
+
+Now each square got a handleClick function, and could pass in its own square number so that Board knew which square
+to update. I did run into the infinite loop problem, which was solved with the arrow function.
+
+To implement the O turn, I created a new state called xIsNext, which was just a bool to keep track of whose turn it is.
+To prevent players from overwriting the other player's pieces, I added a check in the beginning of handleClick that would exit early if
+the square they're trying to place a piece on was already occupied.
+
+The final step was for Board to determine if there was a winner.
+I used the calculateWinner function from the tutorial, which had hard-coded winning combinations, and would loop through and check the Board
+to see if there were winning combinations.
+
+Now I could call the calculateWinner function so that if there is a winner, the game would stop.
+
+I then added a status at the top of the board that would display whose turn it was, and show the winner once someone won.
+
+

@@ -16,3 +16,7 @@ I added an if statement within my turn if statement. It checks if there is a sel
 If it is, set an X/O there and remove the original X/O using the selectedPiece state. But now the problem is that pieces can
 move anywhere, but they're only supposed to move adjacently.
 
++ Implemented check for adjacency.
+I created a function that would return adjacent squares based on the square that the user clicked on. This was used as 
+the final check for a legal move. Now the player must click on an empty squaere, and that square must be adjacent.
+

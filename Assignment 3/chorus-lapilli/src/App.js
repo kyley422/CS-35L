@@ -60,8 +60,13 @@ export default function Board() {
         }
       }
       else {
-        nextSquares[i] = "X"
-        setXCount(xCount+1)
+        if (squares[i]) {
+          return
+        }
+        else {
+          nextSquares[i] = "X"
+          setXCount(xCount+1)
+        }
       }
     }
     else {
@@ -92,19 +97,20 @@ export default function Board() {
             }
           }
           else {
-            console.log("O selected selected (" + i +")")
+            console.log("O selected (" + i +")")
             setSelectedPiece(i)
             return
           }
         }
-        else {
-          nextSquares[i] = "O"
-          setXCount(xCount+1)
-        }
       }
       else {
-        nextSquares[i] = "O"
-        setOCount(oCount+1)
+        if (squares[i]) {
+          return
+        }
+        else {
+          nextSquares[i] = "O"
+          setOCount(oCount+1)
+        }
       }
     }
     setXisNext(!xIsNext)

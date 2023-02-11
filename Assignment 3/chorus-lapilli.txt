@@ -36,4 +36,29 @@ turn. When the center is occupied, the player can either play the center piece o
 was implemented using the centerIsOccupied state. To implement the winning move check, I called calculateWinner on nextSquares. This is why 
 I placed this check after the player makes their move. If it's not a winning move, the program "undo"s the player's move and doesn't update the board.
 
-
+Dry-run:
+npm notice 
+npm notice 📦  chorus-lapilli@0.0.0
+npm notice === Tarball Contents ===
+npm notice 92.9kB README.md
+npm notice 435B   package.json
+npm notice 24.8kB public/favicon.ico
+npm notice 1.4kB  public/index.html
+npm notice 298B   public/manifest.json
+npm notice 6.3kB  src/App.js
+npm notice 2.3kB  src/createServiceWorker.js
+npm notice 256B   src/index.js
+npm notice 157B   src/package.json
+npm notice 234B   src/public/index.html
+npm notice 960B   src/styles.css
+npm notice === Tarball Details ===
+npm notice name:          chorus-lapilli
+npm notice version:       0.0.0
+npm notice filename:      chorus-lapilli-0.0.0.tgz
+npm notice package size:  39.2 kB
+npm notice unpacked size: 130.1 kB
+npm notice shasum:        c1a48bbb6f9d4dc4ebfb3b85cce5d91feb5ceaf6
+npm notice integrity:     sha512-aVBHIFKXsv2+N[...]IjffiRx1Rb8Iw==
+npm notice total files:   11
+npm notice
+chorus-lapilli-0.0.0.tgz

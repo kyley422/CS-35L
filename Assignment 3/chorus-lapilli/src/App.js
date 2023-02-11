@@ -9,6 +9,7 @@ export default function Board() {
   const [xCount, setXCount] = useState(0)
   const [oCount, setOCount] = useState(0)
   const [selectedPiece, setSelectedPiece] = useState(null)
+  const [centerIsOccupied, setCenterIsOccupied] = useState(null)
   const [xIsNext, setXisNext] = useState(true)
   const [squares, setSquares] = useState(Array(9).fill(null))
 
@@ -27,6 +28,14 @@ export default function Board() {
     }
     const nextSquares = squares.slice()
 
+    if (squares[4]) {
+      setCenterIsOccupied(squares[4])
+    }
+    else {
+      setCenterIsOccupied(null)
+    }
+    console.log("Center is occupied: " + centerIsOccupied)
+
     if (xIsNext) {
       if (xCount == 3) {
         if (squares[i] == "O") {return}
@@ -40,6 +49,16 @@ export default function Board() {
               if (adjacentSquares.includes(i)) {
                 nextSquares[i] = "X"
                 nextSquares[selectedPiece] = null
+                // Check for center condition
+                if (centerIsOccupied == "X") {
+                  if (selectedPiece != 4 && !calculateWinner(nextSquares)) {
+                    // Undo the move, this wasn't a valid move
+                    nextSquares[i] = null
+                    nextSquares[selectedPiece] = "X"
+                    return
+                  }
+                }
+                // Assuming valid move
               }
               else {
                 return
@@ -83,6 +102,16 @@ export default function Board() {
                 if (adjacentSquares.includes(i)) {
                   nextSquares[i] = "O"
                   nextSquares[selectedPiece] = null
+                  // Check for center condition
+                  if (centerIsOccupied == "O") {
+                    if (selectedPiece != 4 && !calculateWinner(nextSquares)) {
+                      // Undo the move, this wasn't a valid move
+                      nextSquares[i] = null
+                      nextSquares[selectedPiece] = "O"
+                      return
+                    }
+                  }
+                  // Assuming valid move
                 }
                 else {
                   return
